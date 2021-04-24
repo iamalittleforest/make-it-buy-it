@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: radial-gradient(rgba(255, 255, 240, 0.74) gray dimgray);
+    background-size: cover;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+}
+
+.content-main {
+    -webkit-box-align: stretch;
+    align-items: stretch;
+}
+
