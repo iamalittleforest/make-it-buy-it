@@ -17,14 +17,28 @@ footer {
 }
 
 .search-padding {
-  padding: 200px;
+  padding: 100px 10vw;
   margin: 0px;
 }
 
-.input-background,
-.search-background,
-.label-background {
+.search-background {
+  display:inline-flex;
+  width: 100%;
   background-color: whitesmoke;
   padding: 10px;
   margin: 0px;
+  gap: 10px;
+}
+
+#search-input {
+  max-width: 100%;
+  margin: 0px;
+}
+
+.btn-color {
+  background-color: dimgray;
+}
+
+.btn-color:hover {
+  background-color: darkslateblue;
 }
