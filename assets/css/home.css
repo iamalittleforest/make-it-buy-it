@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: dimgray;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+header,
+nav {
+    height: 20%;
+    min-width: 100vw;
+    font-family: 'Fredericka the Great', cursive;
+    background: linear-gradient(to bottom, rgb(50, 61, 78), transparent);
+}
+
+#webLogo {
+    font-size: 36pt;
+    color:lightgoldenrodyellow;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.container {
+    background-color: transparent;
+    justify-content: center;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 42pt;
+    color: lemonchiffon;
+    background-color: transparent;
+}
+
+#separator-bar {
+    width: 70%;
+    height: 1px;
+    position: relative;
+}
+
+#content-text {
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 24pt;
+    color: lemonchiffon;
+    background-color: transparent;
+}
+
