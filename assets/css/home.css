@@ -76,6 +76,5 @@ h2 {
 footer {
     height: 15%;
     min-width: 100vw;
-    margin: 5px 5px 0px;
     background: linear-gradient(to top, rgb(50, 61, 78), transparent);
 }
