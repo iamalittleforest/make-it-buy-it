@@ -1,0 +1,63 @@
+header,
+nav,
+footer {
+  background-color: darkslateblue;
+}
+
+.row-padding {
+  padding: 20px;
+  margin: 0px;
+}
+
+.search {
+  background-image: url(/assets/images/buyit_splash.jpg);
+  background-size: cover;
+  background-color: whitesmoke;
+  opacity: 85%;
+}
+
+.search-padding {
+  padding: 100px 10vw;
+  margin: 0px;
+}
+
+.search-background {
+  display:inline-flex;
+  width: 100%;
+  background-color: whitesmoke;
+  padding: 10px;
+  margin: 0px;
+  gap: 10px;
+}
+
+#search-input {
+  max-width: 100%;
+  margin: 0px;
+}
+
+.btn-color,
+.btn-color:visited {
+  background-color: dimgray;
+}
+
+.btn-color:hover {
+  background-color: darkslateblue;
+}
+
+#restaurants-container {
+  background-color: whitesmoke;
+}
+
+#restaurant-card {
+  width: 100%;
+  height: 150px;
+}
+
+#restaurant-image {
+  max-width: 150px;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
