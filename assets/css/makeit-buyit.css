@@ -1,7 +1,7 @@
 header,
 nav,
 footer {
-  background-color: dimgray;
+  background-color: darkslateblue;
 }
 
 .row-padding {
@@ -12,7 +12,7 @@ footer {
 .search {
   background-image: url(/assets/images/buyit_splash.jpg);
   background-size: cover;
-  background-color: black;
+  background-color: whitesmoke;
   opacity: 85%;
 }
 
@@ -35,10 +35,29 @@ footer {
   margin: 0px;
 }
 
-.btn-color {
+.btn-color,
+.btn-color:visited {
   background-color: dimgray;
 }
 
 .btn-color:hover {
   background-color: darkslateblue;
+}
+
+#restaurants-container {
+  background-color: whitesmoke;
+}
+
+#restaurant-card {
+  width: 100%;
+  height: 150px;
+}
+
+#restaurant-image {
+  max-width: 150px;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
