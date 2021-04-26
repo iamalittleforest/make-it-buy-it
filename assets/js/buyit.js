@@ -1,3 +1,5 @@
+favorites = [];
+
 $(document).ready(function(){
   $(".sidenav").sidenav();
 });
@@ -19,7 +21,7 @@ function searchHandler(event){
     $("#search-input").val("");
     
     // save search to local storage
-    // saveSearch(search);
+    saveSearch(search);
     
     // fetch restaurants for city
     doSearch(search);
@@ -67,6 +69,7 @@ function renderSearch(data){
     cardContainer.append(card);
     
     var cardImg = $("<div>");
+    cardImg.attr("id", "image-container");
     cardImg.addClass("card-image");
     card.append(cardImg);
 
@@ -76,26 +79,54 @@ function renderSearch(data){
     cardImg.append(img);
 
     var cardContent = $("<div>");
+    cardContent.attr("id", "content-container");
     cardContent.addClass("card-content");
     card.append(cardContent);
     
-    var name = $("<div>");
+    var name = $("<h4>");
     name.attr("id", "restaurant-name");
     name.addClass("card-title");
     name.text(`${businessInfo.name}`);
     cardContent.append(name);
 
-    var price = $("<div>");
+    var price = $("<h6>");
     price.attr("id", "restaurant-price");
     price.text(`Price: ${businessInfo.price}`);
     cardContent.append(price);
 
-    var rating = $("<div>");
+    var rating = $("<h6>");
     rating.attr("id", "restaurant-rating");
     rating.text(`Yelp Rating: ${businessInfo.rating}`);
     cardContent.append(rating);
   }
 }
+
+// select restaurant to save
+$(".search-history").on("click", ".city-button", historyHandler);
+
+function historyHandler(event) {
+  event.preventDefault();
+  
+  var searchCity = $(this).text();
+  // console.log(searchCity);
+  fetchWeather(searchCity);
+}
+
+// save favorite restaurants
+function saveFavorite(search) {
+  
+  // checks for duplicate entries
+  if (!favorites.includes(search)) {
+    
+    // add city to search history and save to localStorage
+    favorites.push(search);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  
+    // render favorites 
+    // renderFavorites();
+  }
+}
+
 
 // initialize page
 function init(){
