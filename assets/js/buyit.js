@@ -20,9 +20,6 @@ function searchHandler(event){
     // clear the input field
     $("#search-input").val("");
     
-    // save search to local storage
-    saveSearch(search);
-    
     // fetch restaurants for city
     doSearch(search);
   }
@@ -60,7 +57,7 @@ function renderSearch(data){
     var businessInfo = allBusinessInfo[i];
     
     var cardContainer = $("<div>");
-    cardContainer.addClass("col m12 l6");
+    cardContainer.addClass("col s12 m12 l6");
     $("#render-search").append(cardContainer);
     
     var card = $("<div>");
@@ -98,35 +95,43 @@ function renderSearch(data){
     rating.attr("id", "restaurant-rating");
     rating.text(`Yelp Rating: ${businessInfo.rating}`);
     cardContent.append(rating);
+
+    var favoriteBtn = $("<button>");
+    favoriteBtn.attr("id", "favorite-btn");
+    favoriteBtn.addClass("btn btn-small btn-color left");
+    favoriteBtn.attr("type", "button");
+    favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
+    cardContent.append(favoriteBtn);
+
+    var favoriteBtn = $("<button>");
+    favoriteBtn.attr("id", "link-btn");
+    favoriteBtn.addClass("btn btn-small btn-color left");
+    favoriteBtn.attr("type", "button");
+    favoriteBtn.html(`<i class=" material-icons">link</i>`);
+    cardContent.append(favoriteBtn);
+    // add link to button here? or event handler?
+    // img.attr("src", `${businessInfo.url}`);
   }
 }
 
-// select restaurant to save
-$(".search-history").on("click", ".city-button", historyHandler);
+// select favorite restaurant to save
+$("#render-search").on("click", "#favorite-btn", saveFavoriteHandler);
 
-function historyHandler(event) {
-  event.preventDefault();
-  
-  var searchCity = $(this).text();
-  // console.log(searchCity);
-  fetchWeather(searchCity);
-}
+function saveFavoriteHandler(event) {
+  event.stopPropagation();
 
-// save favorite restaurants
-function saveFavorite(search) {
-  
+  $(this).html(`<i class=" material-icons">favorite</i>`);
+  var favoriteRestaurant = $(this).siblings("#restaurant-name").text();
+  console.log(favoriteRestaurant);
+
   // checks for duplicate entries
-  if (!favorites.includes(search)) {
+  if (!favorites.includes(favoriteRestaurant)) {
     
     // add city to search history and save to localStorage
-    favorites.push(search);
+    favorites.push(favoriteRestaurant);
     localStorage.setItem("favorites", JSON.stringify(favorites));
-  
-    // render favorites 
-    // renderFavorites();
   }
 }
-
 
 // initialize page
 function init(){
