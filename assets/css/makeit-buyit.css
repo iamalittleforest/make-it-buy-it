@@ -9,15 +9,18 @@ footer {
   margin: 0px;
 }
 
-.search {
-  background-image: url(/assets/images/buyit_splash.jpg);
+h4, 
+h6 {
+  margin-top: 0;
+}
+
+.search-container {
   background-size: cover;
   background-color: whitesmoke;
-  opacity: 85%;
 }
 
 .search-padding {
-  padding: 100px 10vw;
+  padding: 20px 10vw;
   margin: 0px;
 }
 
@@ -35,13 +38,17 @@ footer {
   margin: 0px;
 }
 
-.btn-color,
-.btn-color:visited {
+.btn-color {
   background-color: dimgray;
 }
 
-.btn-color:hover {
+.btn-color:hover,
+.btn-color:active {
   background-color: darkslateblue;
+}
+
+.btn-color:visited {
+  background-color: #26a69a;
 }
 
 #restaurants-container {
@@ -53,11 +60,36 @@ footer {
   height: 150px;
 }
 
+#image-container {
+  width: 35%;
+  height: 100%;
+  overflow: hidden;
+}
+
 #restaurant-image {
-  max-width: 150px;
+  max-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
   object-fit: cover;
   object-position: 50% 50%;
+}
+
+#content-container {
+  padding: 10px;
+}
+
+#header-container {
+  display: flex;
+  clear: both;
+  width: 100%;
+}
+
+#restaurant-name {
+  display: block;
+  float: left;
+}
+
+#favorite-btn {
+  margin-right: 10px;
 }
