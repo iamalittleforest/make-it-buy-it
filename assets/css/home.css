@@ -19,13 +19,14 @@ nav {
     min-width: 100vw;
     font-family: 'Fredericka the Great', cursive;
     background: linear-gradient(to bottom, rgb(50, 61, 78), transparent);
+    z-index: 1;
 }
 
 #webLogo {
-    font-size: 36pt;
+    font-size: 6vw;
     color:lightgoldenrodyellow;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 3vh;
     padding: 50px;
 }
 
@@ -35,6 +36,7 @@ nav {
     text-align: center;
     height: 72%;
     width: 75%;
+    z-index: 1;
 }
 
 h2 {
@@ -52,6 +54,7 @@ h2 {
     margin: 20px 20px;
     justify-content: center;
     text-align: center;
+    
 }
 
 #content-text {
