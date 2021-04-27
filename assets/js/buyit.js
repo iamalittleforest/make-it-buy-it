@@ -1,5 +1,5 @@
-var allFavorites = [];
-var restaurantInfo = [];
+var allFavoriteInfo = [];
+var allRestaurantInfo = [];
 
 $(document).ready(function(){
   $(".sidenav").sidenav();
@@ -51,13 +51,28 @@ function renderSearch(data){
   $("#restaurants-container").show();
   $("#favorites-container").hide();
 
+  // save get 
   var allBusinessInfo = data.businesses;
+  console.log(allBusinessInfo);
   
-  // create restaurant cards for each restaurant 
+  // save all restaurant info and create cards for each restaurant 
   for(var i = 0; i < allBusinessInfo.length; i++){
 
+    // create object to store restaurant data (is this redundant?)
     var businessInfo = allBusinessInfo[i];
+    // var restaurantInfo = {
+    //   imgUrl: `${businessInfo.image_url}`,
+    //   name: `${businessInfo.name}`,
+    //   price: `${businessInfo.price}`,
+    //   rating: `${businessInfo.rating}`,
+    //   link: `${businessInfo.url}`
+    // }
     
+    // push object into array and store in localStorage
+    // allRestaurantInfo.push(restaurantInfo);
+    // localStorage.setItem("restaurantInfo", JSON.stringify(allRestaurantInfo));
+    
+    // create restaurant card
     var cardContainer = $("<div>");
     cardContainer.addClass("col s12 m12 l6");
     $("#render-search").append(cardContainer);
@@ -71,12 +86,12 @@ function renderSearch(data){
     cardImg.attr("id", "image-container");
     cardImg.addClass("card-image");
     card.append(cardImg);
-
+    
     var img = $("<img>");
     img.attr("id", "restaurant-img");
     img.attr("src", `${businessInfo.image_url}`)
     cardImg.append(img);
-
+    
     var cardContent = $("<div>");
     cardContent.attr("id", "content-container");
     cardContent.addClass("card-content");
@@ -87,25 +102,27 @@ function renderSearch(data){
     name.addClass("card-title");
     name.text(`${businessInfo.name}`);
     cardContent.append(name);
-
+    
     var price = $("<h6>");
     price.attr("id", "restaurant-price");
     price.text(`Price: ${businessInfo.price}`);
     cardContent.append(price);
-
+    
     var rating = $("<h6>");
     rating.attr("id", "restaurant-rating");
     rating.text(`Rating: ${businessInfo.rating}`);
     cardContent.append(rating);
-
+    
     var linkBtn = $("<button>");
     linkBtn.attr("id", "link-btn");
     linkBtn.addClass("btn btn-small btn-color left");
     linkBtn.attr("type", "button");
     linkBtn.html(`<i class=" material-icons">link</i>`);
     cardContent.append(linkBtn);
-    // add link to button here? or event handler?
-    // link.attr("src", `${businessInfo.url}`);
+    
+    var link = $("<a>");
+    link.attr("href", `${businessInfo.url}`);
+    linkBtn.append(link);
     
     var favoriteBtn = $("<button>");
     favoriteBtn.attr("id", "favorite-btn");
@@ -114,6 +131,7 @@ function renderSearch(data){
     favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
     cardContent.append(favoriteBtn);
   }
+  // console.log(allRestaurantInfo);
 }
 
 // select favorite restaurant to save
@@ -121,18 +139,34 @@ $("#render-search").on("click", "#favorite-btn", saveFavoriteHandler);
 
 function saveFavoriteHandler(event) {
   event.stopPropagation();
-
+  
+  // change favorite icon to signify addition to favorites
   $(this).html(`<i class=" material-icons">favorite</i>`);
-  var favoriteName = $(this).siblings("#restaurant-name").text();
-  console.log(favoriteName);
 
+  var favoriteImg = $(this).parent("#restaurant-img").attr("src");
+  var favoriteName = $(this).siblings("#restaurant-name").text();
+  var favoritePrice = $(this).siblings("#restaurant-price").text();
+  var favoriteRating = $(this).siblings("#restaurant-rating").text();
+  // var favoriteLink = $(this).siblings("#restaurant-link").text();
+
+  var favoriteInfo = {
+    imgUrl: favoriteImg,
+    name: favoriteName,
+    price: favoritePrice,
+    rating: favoriteRating,
+    // link: favoriteLink
+  }
+  
   // checks for duplicate entries
-  if (!allFavorites.includes(favoriteName)) {
+  if (!allFavoriteInfo.includes(favoriteInfo)) {
     
     // add city to search history and save to localStorage
-    allFavorites.push(favoriteName);
-    localStorage.setItem("favorites", JSON.stringify(allFavorites));
+    allFavoriteInfo.push(favoriteInfo);
+    localStorage.setItem("allFavorites", JSON.stringify(allFavoriteInfo));
   }
+  
+  // console.log(favoriteInfo);
+  console.log(allFavoriteInfo);
 }
 
 // view favorite restaurants
@@ -144,9 +178,20 @@ function viewFavoritesHandler(event) {
   $("#restaurants-container").hide();
   $("#favorites-container").show();
 
-  for (var i = 0; i < allFavorites.length; i++) {
+  // get stored favorites from localStorage
+  var savedFavorites = JSON.parse(localStorage.getItem("allFavorites"));
 
-    var favorite = allFavorites[i];
+  // checks for data in localStorage
+  if (savedFavorites !== null) {
+    allFavoriteInfo = savedFavorites;
+  } else {
+    allFavoriteInfo = [];
+  }
+
+  // create cards for each favorite restaurant 
+  for (var i = 0; i < allFavoriteInfo.length; i++) {
+
+    var favorite = allFavoriteInfo[i];
     
     var cardContainer = $("<div>");
     cardContainer.addClass("col s12 m12 l6");
@@ -175,8 +220,36 @@ function viewFavoritesHandler(event) {
     var name = $("<h4>");
     name.attr("id", "restaurant-name");
     name.addClass("card-title");
-    name.text(`${favorite}`);
+    name.text(`${favorite.name}`);
     cardContent.append(name);
+
+    var price = $("<h6>");
+    price.attr("id", "restaurant-price");
+    price.text(`Price: ${favorite.price}`);
+    cardContent.append(price);
+    
+    var rating = $("<h6>");
+    rating.attr("id", "restaurant-rating");
+    rating.text(`Rating: ${favorite.rating}`);
+    cardContent.append(rating);
+
+    var linkBtn = $("<button>");
+    linkBtn.attr("id", "link-btn");
+    linkBtn.addClass("btn btn-small btn-color left");
+    linkBtn.attr("type", "button");
+    linkBtn.html(`<i class=" material-icons">link</i>`);
+    cardContent.append(linkBtn);
+    
+    var link = $("<a>");
+    link.attr("href", `${favorite.url}`);
+    linkBtn.append(link);
+
+    var favoriteBtn = $("<button>");
+    favoriteBtn.attr("id", "favorite-btn");
+    favoriteBtn.addClass("btn btn-small btn-color left");
+    favoriteBtn.attr("type", "button");
+    favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
+    cardContent.append(favoriteBtn);
   }
 }
 
