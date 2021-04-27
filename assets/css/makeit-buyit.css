@@ -38,17 +38,14 @@ h6 {
   margin: 0px;
 }
 
-.btn-color {
+.btn-color,
+.btn-color:visited {
   background-color: dimgray;
 }
 
 .btn-color:hover,
-.btn-color:active {
+.btn-color:active { 
   background-color: darkslateblue;
-}
-
-.btn-color:visited {
-  background-color: #26a69a;
 }
 
 #restaurants-container,
