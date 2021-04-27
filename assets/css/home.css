@@ -41,7 +41,7 @@ nav {
 
 h2 {
     font-family: 'Cabin Sketch', cursive;
-    font-size: 36pt;
+    font-size: 5vw;
     color: lemonchiffon;
     background-color: transparent;
     margin: 20px 5%;
@@ -78,6 +78,11 @@ h2 {
 
 footer {
     height: 15%;
-    min-width: 100vw;
+    width: 100vw;
     background: linear-gradient(to top, rgb(50, 61, 78), transparent);
+}
+
+#about {
+    float: left;
+    margin-left: 10px;
 }
