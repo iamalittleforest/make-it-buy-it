@@ -1,4 +1,5 @@
-favorites = [];
+var allFavorites = [];
+var restaurantInfo = [];
 
 $(document).ready(function(){
   $(".sidenav").sidenav();
@@ -48,6 +49,7 @@ function doSearch(search){
 function renderSearch(data){
 
   $("#restaurants-container").show();
+  $("#favorites-container").hide();
 
   var allBusinessInfo = data.businesses;
   
@@ -93,24 +95,24 @@ function renderSearch(data){
 
     var rating = $("<h6>");
     rating.attr("id", "restaurant-rating");
-    rating.text(`Yelp Rating: ${businessInfo.rating}`);
+    rating.text(`Rating: ${businessInfo.rating}`);
     cardContent.append(rating);
 
+    var linkBtn = $("<button>");
+    linkBtn.attr("id", "link-btn");
+    linkBtn.addClass("btn btn-small btn-color left");
+    linkBtn.attr("type", "button");
+    linkBtn.html(`<i class=" material-icons">link</i>`);
+    cardContent.append(linkBtn);
+    // add link to button here? or event handler?
+    // link.attr("src", `${businessInfo.url}`);
+    
     var favoriteBtn = $("<button>");
     favoriteBtn.attr("id", "favorite-btn");
     favoriteBtn.addClass("btn btn-small btn-color left");
     favoriteBtn.attr("type", "button");
     favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
     cardContent.append(favoriteBtn);
-
-    var favoriteBtn = $("<button>");
-    favoriteBtn.attr("id", "link-btn");
-    favoriteBtn.addClass("btn btn-small btn-color left");
-    favoriteBtn.attr("type", "button");
-    favoriteBtn.html(`<i class=" material-icons">link</i>`);
-    cardContent.append(favoriteBtn);
-    // add link to button here? or event handler?
-    // img.attr("src", `${businessInfo.url}`);
   }
 }
 
@@ -121,19 +123,66 @@ function saveFavoriteHandler(event) {
   event.stopPropagation();
 
   $(this).html(`<i class=" material-icons">favorite</i>`);
-  var favoriteRestaurant = $(this).siblings("#restaurant-name").text();
-  console.log(favoriteRestaurant);
+  var favoriteName = $(this).siblings("#restaurant-name").text();
+  console.log(favoriteName);
 
   // checks for duplicate entries
-  if (!favorites.includes(favoriteRestaurant)) {
+  if (!allFavorites.includes(favoriteName)) {
     
     // add city to search history and save to localStorage
-    favorites.push(favoriteRestaurant);
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    allFavorites.push(favoriteName);
+    localStorage.setItem("favorites", JSON.stringify(allFavorites));
   }
 }
+
+// view favorite restaurants
+$("#all-favorites-btn").on("click", viewFavoritesHandler);
+
+function viewFavoritesHandler(event) {
+  event.stopPropagation();
+
+  $("#restaurants-container").hide();
+  $("#favorites-container").show();
+
+  for (var i = 0; i < allFavorites.length; i++) {
+
+    var favorite = allFavorites[i];
+    
+    var cardContainer = $("<div>");
+    cardContainer.addClass("col s12 m12 l6");
+    $("#render-favorites").append(cardContainer);
+    
+    var card = $("<div>");
+    card.attr("id", "restaurant-card");
+    card.addClass("card horizontal hoverable");
+    cardContainer.append(card);
+    
+    var cardImg = $("<div>");
+    cardImg.attr("id", "image-container");
+    cardImg.addClass("card-image");
+    card.append(cardImg);
+
+    // var img = $("<img>");
+    // img.attr("id", "restaurant-img");
+    // img.attr("src", `${businessInfo.image_url}`)
+    // cardImg.append(img);
+
+    var cardContent = $("<div>");
+    cardContent.attr("id", "content-container");
+    cardContent.addClass("card-content");
+    card.append(cardContent);
+    
+    var name = $("<h4>");
+    name.attr("id", "restaurant-name");
+    name.addClass("card-title");
+    name.text(`${favorite}`);
+    cardContent.append(name);
+  }
+}
+
 
 // initialize page
 function init(){
   $("#restaurants-container").hide();
+  $("#favorites-container").hide();
 }
