@@ -37,8 +37,8 @@ function doSearch(search){
   $("#render-search").html("");
 
   $.ajax({
+    contentType: "application/json",
     method: "GET",
-    accepts: "*",
     url: `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=10&apiKey=ec05068cf090412eb77ead2a99d031e9`,
   }).then(function(data){
     console.log(data);
@@ -48,57 +48,57 @@ function doSearch(search){
 
 // render search results 
 
-function renderSearch(data) {
+// function renderSearch(data) {
 
-  $("#ingrediets-container").show();
+//   $("#ingrediets-container").show();
 
-  var allIngredientsInfo = data.usedIngredients;
+//   var allIngredientsInfo = data.usedIngredients;
 
 
-  //create restaurant cards for each restaurant 
+//   //create restaurant cards for each restaurant 
 
-  for(var i = 0; i < allIngredientsInfo; i++) {
+//   for(var i = 0; i < allIngredientsInfo; i++) {
 
-    var cardContainer = $("<div>");
-    cardContainer.addClass("col m12 l6");
-    $("#render-search").append(cardContainer);
+//     var cardContainer = $("<div>");
+//     cardContainer.addClass("col m12 l6");
+//     $("#render-search").append(cardContainer);
 
-    var card = $("<div>");
-    card.attr("id", "restaurant-card");
-    card.addClass("card horizontal hoverable");
-    cardContainer.append(card);
+//     var card = $("<div>");
+//     card.attr("id", "restaurant-card");
+//     card.addClass("card horizontal hoverable");
+//     cardContainer.append(card);
 
-    var cardImg = $("<div>");
-    cardImg.addClass("card-image");
-    card.append(cardImg);
+//     var cardImg = $("<div>");
+//     cardImg.addClass("card-image");
+//     card.append(cardImg);
 
-    var img = $("<img>");
-    img.attr("id", "restaurant-img");
-    img.attr("src", `${ADD}`);
-    cardImg.append(img);
+//     var img = $("<img>");
+//     img.attr("id", "restaurant-img");
+//     img.attr("src", `${ADD}`);
+//     cardImg.append(img);
 
-    var cardContent = $("<div>");
-    cardContent.addClass("card-content");
-    card.append(cardContent);
+//     var cardContent = $("<div>");
+//     cardContent.addClass("card-content");
+//     card.append(cardContent);
     
-    var name = $("<div>");
-    name.attr("id", "restaurant-name");
-    name.addClass("card-title");
-    name.text(`${ADD}`);
-    cardContent.append(name);
-    // change price to something
-    var price = $("<div>");
-    price.attr("id", "restaurant-price");
-    price.text(`Price: ${ADD}`);
-    cardContent.append(price);
-    // change rating to something 
-    var rating = $("<div>");
-    rating.attr("id", "restaurant-rating");
-    rating.text(`Yelp Rating: ${ADD}`);
-    cardContent.append(rating);
-  }
+//     var name = $("<div>");
+//     name.attr("id", "restaurant-name");
+//     name.addClass("card-title");
+//     name.text(`${ADD}`);
+//     cardContent.append(name);
+//     // change price to something
+//     var price = $("<div>");
+//     price.attr("id", "restaurant-price");
+//     price.text(`Price: ${ADD}`);
+//     cardContent.append(price);
+//     // change rating to something 
+//     var rating = $("<div>");
+//     rating.attr("id", "restaurant-rating");
+//     rating.text(`Yelp Rating: ${ADD}`);
+//     cardContent.append(rating);
+//   }
 
-}
+// }
 
 
 
