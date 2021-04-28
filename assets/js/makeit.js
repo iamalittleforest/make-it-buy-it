@@ -43,8 +43,35 @@ function doSearch(search){
   }).then(function(data){
     console.log(data);
     renderSearch(data);
+
+    for (var i=0; i < data.length; i++){
+      allRecipeInfo = data[i]
+      console.log(allRecipesInfo.id)
+    }
+    
+    // getRecipeLinkById(allRecipesInfo.id)
   })
 }
+
+
+
+
+// function getRecipeLinkById(id){
+//   $.ajax({
+//     contentType: "application/json",
+//     method: "GET",
+//     url: `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=ec05068cf090412eb77ead2a99d031e9`,
+//   }).then(function(data){
+//     console.log(data);
+//   })
+// }
+
+
+
+
+
+
+
 // rendering search results
 function renderSearch(data) {
   $("#ingredients-container").show();
@@ -59,20 +86,22 @@ cardContainer.addClass("col m12 l6");
 $("#render-search").append(cardContainer)
 
 var card = $("<div>");
-    card.attr("id", "restaurant-card");
+    card.attr("id", "recipe-card");
     card.addClass("card horizontal hoverable");
     cardContainer.append(card);
     
     var cardImg = $("<div>");
+    cardImg.attr("id", "image-container");
     cardImg.addClass("card-image");
     card.append(cardImg);
 
     var jpg = $("<img>");
-    jpg.attr("id", "restaurant-img");
+    jpg.attr("id", "recipe-img");
     jpg.attr("src", `${allRecipesInfo.image}`)
     cardImg.append(jpg);
 
     var cardContent = $("<div>");
+    cardContent.attr("id", "content-container");
     cardContent.addClass("card-content");
     card.append(cardContent);
     
@@ -84,7 +113,7 @@ var card = $("<div>");
 
     var missedIngredientCount = $("<div>");
     missedIngredientCount.attr("id", "missed-ingredient-count");
-    missedIngredientCount.text(`Number of Missed Ingredients: ${allRecipesInfo.missedIngredientCount}`);
+    missedIngredientCount.text(`Missed Ingredients: ${allRecipesInfo.missedIngredientCount}`);
     cardContent.append(missedIngredientCount);
 
     // var missedIngredientsList = $("<div>");
