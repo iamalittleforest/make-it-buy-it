@@ -15,12 +15,13 @@ h6 {
 }
 
 .search-container {
+  /* background-image: url("/assets/images/buyit_splash.jpg"); */
   background-size: cover;
   background-color: whitesmoke;
 }
 
 .search-padding {
-  padding: 20px 10vw;
+  padding: 200px 10vw;
   margin: 0;
 }
 
@@ -89,4 +90,25 @@ h6 {
 #favorite-btn {
   margin-right: 10px;
   margin-top: 5px;
+}
+
+
+/* for small screens */
+@media screen and (max-width: 600px) {
+  nav .brand-logo {
+    font-size: 1.25rem;
+  }
+
+  .search-padding {
+    padding: 20px 10vw;
+    margin: 0;
+  }
+}
+
+/* for medium screens */
+@media screen and (max-width: 992px) {
+  .search-padding {
+    padding: 100px 10vw;
+    margin: 0;
+  }
 }
