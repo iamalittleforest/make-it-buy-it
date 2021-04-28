@@ -1,3 +1,4 @@
+// define global variables
 var allFavoriteInfo = [];
 var allRestaurantInfo = [];
 
@@ -6,10 +7,13 @@ $(document).ready(function(){
 });
 
 init();
+
+// enables use of enter key to submit
 $("form").on('submit', function(e){
-  e.preventDefault()
-  searchHandler(e)
+  e.preventDefault();
+  searchHandler(e);
 })
+
 // search button starts search for restaurants
 $("#search-btn").on("click", searchHandler);
 
@@ -23,7 +27,7 @@ function searchHandler(event){
     // clear the input field
     $("#search-input").val("");
     
-    // fetch restaurants for city
+    // fetch restaurants for based on input
     doSearch(search);
   }
 }
@@ -54,14 +58,13 @@ function renderSearch(data){
   $("#favorites-container").hide();
 
   // save get 
-  var allBusinessInfo = data.businesses;
-  console.log(allBusinessInfo);
+  allRestaurantInfo = data.businesses;
+  console.log(allRestaurantInfo);
   
   // save all restaurant info and create cards for each restaurant 
-  for(var i = 0; i < allBusinessInfo.length; i++){
+  for(var i = 0; i < allRestaurantInfo.length; i++){
 
-    // create object to store restaurant data (is this redundant?)
-    var businessInfo = allBusinessInfo[i];
+    var restaurantInfo = allRestaurantInfo[i];
     
     // create restaurant card
     var cardContainer = $("<div>");
@@ -80,7 +83,7 @@ function renderSearch(data){
     
     var img = $("<img>");
     img.attr("id", "restaurant-img");
-    img.attr("src", businessInfo.image_url)
+    img.attr("src", restaurantInfo.image_url)
     cardImg.append(img);
     
     var cardContent = $("<div>");
@@ -91,17 +94,17 @@ function renderSearch(data){
     var name = $("<h4>");
     name.attr("id", "restaurant-name");
     name.addClass("card-title");
-    name.text(businessInfo.name);
+    name.text(restaurantInfo.name);
     cardContent.append(name);
     
     var price = $("<h6>");
     price.attr("id", "restaurant-price");
-    price.text(`Price: ${businessInfo.price}`);
+    price.text(`Price: ${restaurantInfo.price}`);
     cardContent.append(price);
     
     var rating = $("<h6>");
     rating.attr("id", "restaurant-rating");
-    rating.text(`Rating: ${businessInfo.rating}`);
+    rating.text(`Rating: ${restaurantInfo.rating}`);
     cardContent.append(rating);
     
     var linkBtn = $("<button>");
@@ -111,7 +114,7 @@ function renderSearch(data){
     linkBtn.html(`<i class=" material-icons">link</i>`);
     
     var link = $("<a>");
-    link.attr("href", businessInfo.url || "https://yelp.com");
+    link.attr("href", restaurantInfo.url || "https://yelp.com");
     link.attr("target", "_blank");
     link.append(linkBtn);
     cardContent.append(link);
@@ -121,10 +124,15 @@ function renderSearch(data){
     favoriteBtn.addClass("btn btn-small btn-color left");
     favoriteBtn.attr("type", "button");
     favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
-    favoriteBtn.attr("data-image", businessInfo.image_url);
+    favoriteBtn.attr("data-image", restaurantInfo.image_url);
+    favoriteBtn.attr("data-name", restaurantInfo.name);
+    favoriteBtn.attr("data-price", restaurantInfo.price);
+    favoriteBtn.attr("data-rating", restaurantInfo.rating);
+    favoriteBtn.attr("data-url", restaurantInfo.url);
     cardContent.append(favoriteBtn);
   }
 }
+
 
 // select favorite restaurant to save
 $("#render-search").on("click", "#favorite-btn", saveFavoriteHandler);
@@ -135,18 +143,20 @@ function saveFavoriteHandler(event){
   // change favorite icon to signify addition to favorites
   $(this).html(`<i class=" material-icons">favorite</i>`);
 
+  // obtain restaurant info from data stored on the favorite button
   var favoriteImg = $(this).attr("data-image");
-  var favoriteName = $(this).siblings("#restaurant-name").text();
-  var favoritePrice = $(this).siblings("#restaurant-price").text();
-  var favoriteRating = $(this).siblings("#restaurant-rating").text();
-  // var favoriteLink = $(this).siblings("#restaurant-link").text();
+  var favoriteName = $(this).attr("data-name");
+  var favoritePrice = $(this).attr("data-price");
+  var favoriteRating = $(this).attr("data-rating");
+  var favoriteUrl = $(this).attr("data-url");
 
+  // create an object to store the data
   var favoriteInfo = {
     imgUrl: favoriteImg,
     name: favoriteName,
     price: favoritePrice,
     rating: favoriteRating,
-    // link: favoriteLink
+    url: favoriteUrl
   }
   
   // checks for duplicate entries
@@ -160,6 +170,7 @@ function saveFavoriteHandler(event){
   // console.log(favoriteInfo);
   console.log(allFavoriteInfo);
 }
+
 
 // view favorite restaurants
 $("#all-favorites-btn").on("click", viewFavoritesHandler);
@@ -185,7 +196,7 @@ function viewFavoritesHandler(event){
 
     var favorite = allFavoriteInfo[i];
     
-    // create restaurant card
+    // create favorite restaurant card
     var cardContainer = $("<div>");
     cardContainer.addClass("col s12 m12 l6");
     $("#render-favorites").append(cardContainer);
@@ -234,8 +245,10 @@ function viewFavoritesHandler(event){
     cardContent.append(linkBtn);
     
     var link = $("<a>");
-    link.attr("href", favorite.link);
-    linkBtn.append(link);
+    link.attr("href", favorite.url || "https://yelp.com");
+    link.attr("target", "_blank");
+    link.append(linkBtn);
+    cardContent.append(link);
 
     // var favoriteBtn = $("<button>");
     // favoriteBtn.attr("id", "favorite-btn");
