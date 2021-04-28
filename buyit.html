@@ -64,6 +64,7 @@
             <div class="search-background">
               <input id="search-input" placeholder="Enter City Name..." required>
               <button id="search-btn" class="btn btn-color" type="button"><i class="material-icons">search</i></button>
+              <button id="all-favorites-btn" class="btn btn-color" type="button"><i class="material-icons">favorite</i></button>
             </div>
           </form>
         </div>
@@ -76,30 +77,50 @@
         <div id="render-search" class="row row-padding">
 
           <!-- cards start -->
-          <div class="col m12 l6">
-            <div id="restaurant-class" class="card horizontal hoverable">
-              <div class="card-image">
-                <img id="restaurant-img" src="http://placehold.it/150">
+          <!-- <div class="col s12 m12 l6">
+            <div id="restaurant-card" class="card horizontal hoverable">
+              <div id="image-container" class="card-image">
+                <img id="restaurant-img" src="http://placehold.it/300">
               </div>
-              <div class="card-content card-padding">           
-                <div id="restaurant-name" class="card-title">Restaurant Name</div>
-                <div id="restaurant-price">Price</div>
-                <div id="restaurant-rating">Rating</div>
+              <div id="content-container" style="display:inline-flex" class="card-content card-padding"> 
+                <div class="details" style="width: 80%">
+                  <h4 id="restaurant-name" class="card-title">Restaurant Name</h4>
+                  <h6 id="restaurant-price">Price</h6>
+                  <h6 id="restaurant-rating">Rating</h6>
+                </div>
+                <div class="btn-group">
+                  <button id="link-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">link</i></button>
+                  <button id="favorite-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">favorite_border</i></button>
+                </div>          
+                </div>
+            </div>
+          </div> -->
+          <!-- cards end -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- favorites container -->
+    <div id="favorites-container">
+      <div class="container">
+        <div id="render-favorites" class="row row-padding">
+
+          <!-- cards start -->
+          <!-- <div class="col s12 m12 l6">
+            <div id="restaurant-card" class="card horizontal hoverable">
+              <div id="image-container" class="card-image">
+                <img id="restaurant-img" src="http://placehold.it/300">
+              </div>
+              <div id="content-container" class="card-content card-padding">           
+                <h4 id="restaurant-name" class="card-title">Restaurant Name</h4>
+                <h6 id="restaurant-price">Price</h6>
+                <h6 id="restaurant-rating">Rating</h6>
+                <button id="favorite-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">favorite_border</i></button>
+                <button id="link-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">link</i></button>
               </div>
             </div>
-          </div>
-          <div class="col m12 l6">
-            <div id="restaurant-class" class="card horizontal hoverable">
-              <div class="card-image">
-                <img id="restaurant-img" src="http://placehold.it/150">
-              </div>
-              <div class="card-content card-padding">           
-                <div id="restaurant-name" class="card-title">Restaurant Name</div>
-                <div id="restaurant-price">Price</div>
-                <div id="restaurant-rating">Rating</div>
-              </div>
-            </div>
-          </div>        
+          </div> -->
           <!-- cards end -->
 
         </div>
@@ -116,7 +137,7 @@
         <div class="col s6">
           <h5 class="white-text">About</h5>
           <p class="grey-text text-lighten-4">This project was inspired by our love of food.</p>
-          <!-- <a href='https://pngtree.com/so/doodle-clipart'>doodle clipart png from pngtree.com</a> -->
+          <p class="grey-text text-lighten-4">Restaurant info provided by Yelp.</p>
         </div>
 
         <!-- GitHub section -->
