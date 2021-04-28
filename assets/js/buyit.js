@@ -60,17 +60,6 @@ function renderSearch(data){
 
     // create object to store restaurant data (is this redundant?)
     var businessInfo = allBusinessInfo[i];
-    // var restaurantInfo = {
-    //   imgUrl: `${businessInfo.image_url}`,
-    //   name: `${businessInfo.name}`,
-    //   price: `${businessInfo.price}`,
-    //   rating: `${businessInfo.rating}`,
-    //   link: `${businessInfo.url}`
-    // }
-    
-    // push object into array and store in localStorage
-    // allRestaurantInfo.push(restaurantInfo);
-    // localStorage.setItem("restaurantInfo", JSON.stringify(allRestaurantInfo));
     
     // create restaurant card
     var cardContainer = $("<div>");
@@ -89,7 +78,7 @@ function renderSearch(data){
     
     var img = $("<img>");
     img.attr("id", "restaurant-img");
-    img.attr("src", `${businessInfo.image_url}`)
+    img.attr("src", businessInfo.image_url)
     cardImg.append(img);
     
     var cardContent = $("<div>");
@@ -100,7 +89,7 @@ function renderSearch(data){
     var name = $("<h4>");
     name.attr("id", "restaurant-name");
     name.addClass("card-title");
-    name.text(`${businessInfo.name}`);
+    name.text(businessInfo.name);
     cardContent.append(name);
     
     var price = $("<h6>");
@@ -118,32 +107,33 @@ function renderSearch(data){
     linkBtn.addClass("btn btn-small btn-color left");
     linkBtn.attr("type", "button");
     linkBtn.html(`<i class=" material-icons">link</i>`);
-    cardContent.append(linkBtn);
     
     var link = $("<a>");
-    link.attr("href", `${businessInfo.url}`);
-    linkBtn.append(link);
+    link.attr("href", businessInfo.url || "https://yelp.com");
+    link.attr("target", "_blank");
+    link.append(linkBtn);
+    cardContent.append(link);
     
     var favoriteBtn = $("<button>");
     favoriteBtn.attr("id", "favorite-btn");
     favoriteBtn.addClass("btn btn-small btn-color left");
     favoriteBtn.attr("type", "button");
     favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
+    favoriteBtn.attr("data-image", businessInfo.image_url);
     cardContent.append(favoriteBtn);
   }
-  // console.log(allRestaurantInfo);
 }
 
 // select favorite restaurant to save
 $("#render-search").on("click", "#favorite-btn", saveFavoriteHandler);
 
-function saveFavoriteHandler(event) {
+function saveFavoriteHandler(event){
   event.stopPropagation();
   
   // change favorite icon to signify addition to favorites
   $(this).html(`<i class=" material-icons">favorite</i>`);
 
-  var favoriteImg = $(this).parent("#restaurant-img").attr("src");
+  var favoriteImg = $(this).attr("data-image");
   var favoriteName = $(this).siblings("#restaurant-name").text();
   var favoritePrice = $(this).siblings("#restaurant-price").text();
   var favoriteRating = $(this).siblings("#restaurant-rating").text();
@@ -158,7 +148,7 @@ function saveFavoriteHandler(event) {
   }
   
   // checks for duplicate entries
-  if (!allFavoriteInfo.includes(favoriteInfo)) {
+  if(!allFavoriteInfo.includes(favoriteInfo)){
     
     // add city to search history and save to localStorage
     allFavoriteInfo.push(favoriteInfo);
@@ -172,7 +162,7 @@ function saveFavoriteHandler(event) {
 // view favorite restaurants
 $("#all-favorites-btn").on("click", viewFavoritesHandler);
 
-function viewFavoritesHandler(event) {
+function viewFavoritesHandler(event){
   event.stopPropagation();
 
   $("#restaurants-container").hide();
@@ -182,17 +172,18 @@ function viewFavoritesHandler(event) {
   var savedFavorites = JSON.parse(localStorage.getItem("allFavorites"));
 
   // checks for data in localStorage
-  if (savedFavorites !== null) {
+  if(savedFavorites !== null){
     allFavoriteInfo = savedFavorites;
-  } else {
+  }else{
     allFavoriteInfo = [];
   }
 
   // create cards for each favorite restaurant 
-  for (var i = 0; i < allFavoriteInfo.length; i++) {
+  for(var i = 0; i < allFavoriteInfo.length; i++){
 
     var favorite = allFavoriteInfo[i];
     
+    // create restaurant card
     var cardContainer = $("<div>");
     cardContainer.addClass("col s12 m12 l6");
     $("#render-favorites").append(cardContainer);
@@ -207,10 +198,10 @@ function viewFavoritesHandler(event) {
     cardImg.addClass("card-image");
     card.append(cardImg);
 
-    // var img = $("<img>");
-    // img.attr("id", "restaurant-img");
-    // img.attr("src", `${businessInfo.image_url}`)
-    // cardImg.append(img);
+    var img = $("<img>");
+    img.attr("id", "restaurant-img");
+    img.attr("src", favorite.imgUrl);
+    cardImg.append(img);
 
     var cardContent = $("<div>");
     cardContent.attr("id", "content-container");
@@ -220,7 +211,7 @@ function viewFavoritesHandler(event) {
     var name = $("<h4>");
     name.attr("id", "restaurant-name");
     name.addClass("card-title");
-    name.text(`${favorite.name}`);
+    name.text(favorite.name);
     cardContent.append(name);
 
     var price = $("<h6>");
@@ -241,15 +232,15 @@ function viewFavoritesHandler(event) {
     cardContent.append(linkBtn);
     
     var link = $("<a>");
-    link.attr("href", `${favorite.url}`);
+    link.attr("href", favorite.link);
     linkBtn.append(link);
 
-    var favoriteBtn = $("<button>");
-    favoriteBtn.attr("id", "favorite-btn");
-    favoriteBtn.addClass("btn btn-small btn-color left");
-    favoriteBtn.attr("type", "button");
-    favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
-    cardContent.append(favoriteBtn);
+    // var favoriteBtn = $("<button>");
+    // favoriteBtn.attr("id", "favorite-btn");
+    // favoriteBtn.addClass("btn btn-small btn-color left");
+    // favoriteBtn.attr("type", "button");
+    // favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
+    // cardContent.append(favoriteBtn);
   }
 }
 
