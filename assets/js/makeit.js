@@ -39,12 +39,78 @@ function doSearch(search){
   $.ajax({
     contentType: "application/json",
     method: "GET",
-    url: `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=10&apiKey=ec05068cf090412eb77ead2a99d031e9`,
+    url: `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${search}&number=10&ranking=1&apiKey=ec05068cf090412eb77ead2a99d031e9`,
   }).then(function(data){
     console.log(data);
     renderSearch(data);
   })
 }
+// rendering search results
+function renderSearch(data) {
+  $("#ingredients-container").show();
+
+// create restaurant cards for each restaurant
+for (var i=0; i < data.length; i++) {
+   
+  allRecipesInfo = data[i]
+
+var cardContainer = $("<div>");
+cardContainer.addClass("col m12 l6");
+$("#render-search").append(cardContainer)
+
+var card = $("<div>");
+    card.attr("id", "restaurant-card");
+    card.addClass("card horizontal hoverable");
+    cardContainer.append(card);
+    
+    var cardImg = $("<div>");
+    cardImg.addClass("card-image");
+    card.append(cardImg);
+
+    var jpg = $("<img>");
+    jpg.attr("id", "restaurant-img");
+    jpg.attr("src", `${allRecipesInfo.image}`)
+    cardImg.append(jpg);
+
+    var cardContent = $("<div>");
+    cardContent.addClass("card-content");
+    card.append(cardContent);
+    
+    var name = $("<div>");
+    name.attr("id", "recipe-name");
+    name.addClass("card-title");
+    name.text(`${allRecipesInfo.title}`);
+    cardContent.append(name);
+
+    var missedIngredientCount = $("<div>");
+    missedIngredientCount.attr("id", "missed-ingredient-count");
+    missedIngredientCount.text(`Number of Missed Ingredients: ${allRecipesInfo.missedIngredientCount}`);
+    cardContent.append(missedIngredientCount);
+
+    // var missedIngredientsList = $("<div>");
+    // missedIngredientsList.attr("id", "missed-ingredient-list");
+    // missedIngredientsList.text(`Missed Ingredients: ${allRecipesInfo.missedIngredients[0].name}`);
+    // cardContent.append(missedIngredientsList);
+
+    cardContent.on("click", function(){
+      
+    })
+    // var price = $("<div>");
+    // price.attr("id", "restaurant-price");
+    // price.text(`Price: ${businessInfo.price}`);
+    // cardContent.append(price);
+
+    // var rating = $("<div>");
+    // rating.attr("id", "restaurant-rating");
+    // rating.text(`Yelp Rating: ${businessInfo.rating}`);
+    // cardContent.append(rating);
+  }
+
+
+
+
+}
+
 
 // render search results 
 
