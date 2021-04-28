@@ -6,7 +6,10 @@ $(document).ready(function(){
 });
 
 init();
-
+$("form").on('submit', function(e){
+  e.preventDefault()
+  searchHandler(e)
+})
 // search button starts search for restaurants
 $("#search-btn").on("click", searchHandler);
 
@@ -17,7 +20,6 @@ function searchHandler(event){
   var search = $("#search-input").val().trim();
   
   if(search){
-    
     // clear the input field
     $("#search-input").val("");
     
@@ -28,14 +30,14 @@ function searchHandler(event){
 
 // get search data
 function doSearch(search){
-
+  
   // empty results prior to performing new search
   $("#render-search").html("");
-
+  
   $.ajax({
     headers: {
       Authorization: "Bearer Ryqj-TG94SYRXzsiWTxT_4MKhOAx1HAulcczosM1LalfLE72pqkh-h6KneP7efCyUS1tLZwzMCds6LsnPzigmTfDOcqSIvskkZHDLHcRbSjuAIi4ukJnZmQXCstjW3Yx",
-  },
+    },
     method: "GET",
     accepts: "*",
     url: `https://wendy-cors.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${search}&limit=10`,
