@@ -20,6 +20,8 @@
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Source+Sans+Pro:wght@600&display=swap">
   <link rel="stylesheet" href="./assets/css/makeit-buyit.css">
   
   <!-- title -->
@@ -30,12 +32,12 @@
 <body>
 
   <!-- header -->
-  <header>
+  <header class="buy-it-header">
 
     <!-- desktop nav -->
-    <nav>
+    <nav class = "buy-it-nav">
       <div class="container nav-wrapper">
-        <span class="brand-logo">Make It / Buy It</span>
+        <span class="brand-logo web-title">Make It / Buy It</span>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="makeit.html">Make It</a></li>
@@ -59,12 +61,15 @@
     <!-- search container -->
     <div class="search-container">
       <div class="container">
-        <div class="row search-padding">
+        <div id="search-padding" class="row search-padding-default">
+          <div class="message text-white">
+              <h3>Don't feel like cooking? Let's go somewhere!</h3>
+          </div>
           <form>
             <div class="search-background">
               <input id="search-input" placeholder="Enter City Name..." required>
-              <button id="search-btn" class="btn btn-color" type="button"><i class="material-icons">search</i></button>
-              <button id="all-favorites-btn" class="btn btn-color" type="button"><i class="material-icons">favorite</i></button>
+              <button id="search-btn" class="btn btn-buy-it" type="button"><i class="material-icons">search</i></button>
+              <button id="all-favorites-btn" class="btn btn-buy-it" type="button"><i class="material-icons">favorite</i></button>
             </div>
           </form>
         </div>
@@ -76,22 +81,36 @@
       <div class="container">
         <div id="render-search" class="row row-padding">
 
-          <!-- cards start -->
-          <div class="col s12 m12 l6">
+          <!-- card template reference -->
+          <!-- <div class="col s12 m12 l6">
             <div id="restaurant-card" class="card horizontal hoverable">
               <div id="image-container" class="card-image">
                 <img id="restaurant-img" src="http://placehold.it/300">
               </div>
-              <div id="content-container" class="card-content card-padding">           
-                <h4 id="restaurant-name" class="card-title">Restaurant Name</h4>
-                <h6 id="restaurant-price">Price</h6>
-                <h6 id="restaurant-rating">Rating</h6>
-                <button id="favorite-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">favorite</i></button>
-                <button id="link-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">link</i></button>
-              </div>
+              <div id="content-container" style="display:inline-flex" class="card-content card-padding"> 
+                <div class="details" style="width: 80%">
+                  <h4 id="restaurant-name" class="card-title">Restaurant Name</h4>
+                  <h6 id="restaurant-price">Price</h6>
+                  <h6 id="restaurant-rating">Rating</h6>
+                </div>
+                <div class="btn-group">
+                  <button id="link-btn" class="btn btn-small btn-buy-it" type="button"><i class=" material-icons">link</i></button>
+                  <button id="favorite-btn" class="btn btn-small btn-buy-it" type="button"><i class=" material-icons">favorite_border</i></button>
+                </div>          
+                </div>
             </div>
-          </div>
-          <!-- cards end -->
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+
+    <!-- favorites container -->
+    <div id="favorites-container">
+      <div class="container">
+        <div id="render-favorites" class="row row-padding">
+
+          <!-- favorite cards  -->
 
         </div>
       </div>
@@ -99,7 +118,7 @@
   </main>
 
   <!-- footer start -->
-  <footer>
+  <footer class="buy-it-footer">
     <div class="container">
       <div class="row">
 
@@ -107,7 +126,7 @@
         <div class="col s6">
           <h5 class="white-text">About</h5>
           <p class="grey-text text-lighten-4">This project was inspired by our love of food.</p>
-          <!-- <a href='https://pngtree.com/so/doodle-clipart'>doodle clipart png from pngtree.com</a> -->
+          <p class="grey-text text-lighten-4">Restaurant info provided by Yelp.</p>
         </div>
 
         <!-- GitHub section -->

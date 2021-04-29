@@ -15,7 +15,7 @@
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="./assets/css/buyit.css">
+  <link rel="stylesheet" href="./assets/css/makeit-buyit.css">
   <title>Make It</title>
 </head>
 
@@ -32,8 +32,8 @@
           <span class="brand-logo">Make It / Buy It</span>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="makeit.html">Make It</a></li>
-            <li class="active"><a href="buyit.html">Buy It</a></li>
+            <li class="active"><a href="makeit.html">Make It</a></li>
+            <li><a href="buyit.html">Buy It</a></li>
             <li><a href="index.html">Home</a></li>
           </ul>
         </div>
@@ -42,7 +42,7 @@
       <!-- mobile nav -->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="index.html">Home</a></li>
-        <li><a href="makeit.html">Make It</a></li>
+        <li class="active"><a href="makeit.html">Make It</a></li>
         <li><a href="buyit.html">Buy It</a></li>
       </ul>
     </header>
@@ -56,7 +56,7 @@
           <div class="row search-padding">
             <form>
               <div class="search-background">
-                <input id="search-input" placeholder="Search based on your ingredints..." required>
+                <input id="search-input" placeholder="Search based on your ingredints! onions,tomatos,..." required>
                 <button id="search-btn" class="btn btn-color" type="button"><i class="material-icons">search</i></button>
               </div>
             </form>
@@ -64,10 +64,10 @@
         </div>
       </div>
   
-      <!-- restaurant container  -->
-      <div class="restaurants ">
+      <!-- ingredients container  -->
+      <div id="ingredients-container">
         <div class="container">
-          <div class="row row-padding">
+          <div id="render-search" class="row row-padding">
   
             <!-- cards start -->
             <div class="col s12 m6 l4">
