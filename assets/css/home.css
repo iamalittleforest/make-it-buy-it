@@ -44,10 +44,11 @@ nav {
 h1 {
     margin: 0;
     padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 header#webLogoTab {
-    padding-top: 10%;
+    padding-top: 7%;
 }
 
 .nav-footer {
@@ -75,16 +76,17 @@ header#webLogoTab {
     color: lightgoldenrodyellow;
 }
 
-.nav.footer .closeBtn {
+.nav-footer .closeBtn {
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px;
+    font-size: 45px;
     margin-right: 50px;
+    font-weight: bold;
 }
 
 .left-right {
-    height: 70%;
+    height: 85%;
     width: 50%;
     position: fixed;
     z-index: 1;
@@ -147,6 +149,10 @@ h3 {
 
 .row {
     margin-bottom: 0;
+}
+
+.hidden {
+    display: none;
 }
 
 @media screen and (max-height: 450px) {
