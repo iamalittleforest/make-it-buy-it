@@ -109,7 +109,7 @@ function renderSearch(data){
     
     var linkBtn = $("<button>");
     linkBtn.attr("id", "link-btn");
-    linkBtn.addClass("btn btn-small btn-color left");
+    linkBtn.addClass("btn btn-small btn-buy-it left");
     linkBtn.attr("type", "button");
     linkBtn.html(`<i class=" material-icons">link</i>`);
     
@@ -121,7 +121,7 @@ function renderSearch(data){
     
     var favoriteBtn = $("<button>");
     favoriteBtn.attr("id", "favorite-btn");
-    favoriteBtn.addClass("btn btn-small btn-color left");
+    favoriteBtn.addClass("btn btn-small btn-buy-it left");
     favoriteBtn.attr("type", "button");
     favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
     favoriteBtn.attr("data-image", restaurantInfo.image_url);
@@ -131,6 +131,9 @@ function renderSearch(data){
     favoriteBtn.attr("data-url", restaurantInfo.url);
     cardContent.append(favoriteBtn);
   }
+
+  // make room for results 
+  searchFormat();
 }
 
 
@@ -239,7 +242,7 @@ function viewFavoritesHandler(event){
 
     var linkBtn = $("<button>");
     linkBtn.attr("id", "link-btn");
-    linkBtn.addClass("btn btn-small btn-color left");
+    linkBtn.addClass("btn btn-small btn-buy-it left");
     linkBtn.attr("type", "button");
     linkBtn.html(`<i class=" material-icons">link</i>`);
     cardContent.append(linkBtn);
@@ -252,16 +255,23 @@ function viewFavoritesHandler(event){
 
     // var favoriteBtn = $("<button>");
     // favoriteBtn.attr("id", "favorite-btn");
-    // favoriteBtn.addClass("btn btn-small btn-color left");
+    // favoriteBtn.addClass("btn btn-small btn-buy-it left");
     // favoriteBtn.attr("type", "button");
     // favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
     // cardContent.append(favoriteBtn);
   }
+
+  // make room for results 
+  searchFormat();
 }
 
+function searchFormat(){
+  $("#search-padding").attr("class", "search-padding-results");
+}
 
 // initialize page
 function init(){
   $("#restaurants-container").hide();
   $("#favorites-container").hide();
+  $("#search-padding").attr("class", "search-padding-default");
 }

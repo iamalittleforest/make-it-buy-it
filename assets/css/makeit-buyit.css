@@ -1,7 +1,13 @@
-header,
-nav,
-footer {
+.buy-it-header,
+.buy-it-nav,
+.buy-it-footer {
   background-color: darkslateblue;
+}
+
+.make-it-header,
+.make-it-nav,
+.make-it-footer {
+  background-color: mediumblue;
 }
 
 .row-padding {
@@ -9,20 +15,34 @@ footer {
   margin: 0px;
 }
 
+h3 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  margin: 30px 0;
+  color: white;
+}
+
 h4, 
 h6 {
   margin-top: 0;
 }
 
+.web-title {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 .search-container {
-  /* background-image: url("/assets/images/buyit_splash.jpg"); */
+  background-image: url("../images/buyit_splash.jpg");
   background-size: cover;
   background-color: whitesmoke;
 }
 
-.search-padding {
+.search-padding-default {
   padding: 200px 10vw;
   margin: 0;
+}
+
+.search-padding-results {
+  padding: 20px 10vw;
 }
 
 .search-background {
@@ -32,6 +52,7 @@ h6 {
   padding: 10px;
   margin: 0;
   gap: 10px;
+  border-radius: 5px;
 }
 
 #search-input {
@@ -39,14 +60,21 @@ h6 {
   margin: 0px;
 }
 
-.btn-color,
-.btn-color:visited {
+.btn-buy-it,
+.btn-buy-it:visited,
+.btn-make-it,
+.btn-make-it:visited {
   background-color: dimgray;
 }
 
-.btn-color:hover,
-.btn-color:active { 
+.btn-buy-it:hover,
+.btn-buy-it:active { 
   background-color: darkslateblue;
+}
+
+.btn-make-it:hover,
+.btn-make-it:active { 
+  background-color: mediumblue;
 }
 
 #restaurants-container,
@@ -92,23 +120,44 @@ h6 {
   margin-top: 5px;
 }
 
-
-/* for small screens */
-@media screen and (max-width: 600px) {
-  nav .brand-logo {
-    font-size: 1.25rem;
+/* for medium screens */
+@media only screen and (max-width: 992px) {
+  .search-padding-default {
+    padding: 100px 10vw;
   }
 
-  .search-padding {
-    padding: 20px 10vw;
-    margin: 0;
+  h3 {
+    font-size: 2rem;
   }
 }
 
-/* for medium screens */
-@media screen and (max-width: 992px) {
-  .search-padding {
-    padding: 100px 10vw;
-    margin: 0;
+/* for small screens */
+@media only screen and (max-width: 600px) and (min-width: 0px) {
+  .web-title {
+    font-size: 1.25rem;
+  }
+
+  .search-padding-default {
+    padding: 20px 10vw;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+  }
+
+  #restaurant-card,
+  #recipe-card {
+    width: 100%;
+    border-radius: 5px;
+    height: 150px;
+  }
+
+  .card .card-content .card-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
