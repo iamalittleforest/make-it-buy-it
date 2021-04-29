@@ -1,45 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" 
-    integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
     crossorigin="anonymous">
-  <link 
-    rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
-    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
     crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Fredericka+the+Great&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="./assets/css/home.css">
-  <title>Home</title>
+  <title>Make It or Buy It</title>
 </head>
 
 <body>
 
-  <header>
+  <!--webpage name-->
+  <div class="cover">
+    <header id="overlay" class="row">
+      <nav>
+        <div class="container nav-wrapper">
+          <h1><span id="webLogoTab" class="header-center-item" sytle="font-size:10vw; cursor:pointer" onclick="openNav()">MAKE IT | BUY IT</span></h1>
+        </div>
+        <div id="nav-footer" class="nav-footer">
+          <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>
+          <a href="makeit.html">Make It</a>
+          <a href="buyit.html">Buy It</a>
+          <a href="#">Popular Food</a>
+          <a href="#">Blog</a>
+          <a href="#">Login</a>
+        </div>
+      </nav>
+      
+    </header>
 
-  </header>
+    <!--Intro post about the website and links to other main pages-->
+    <main class="container">
+        <!--links to 'make it' and 'buy it' pages-->
+        <div class="left-right" id="left">
+          <h3 sytle="font-size:7vw;">Cooker<br><div id="separator-bar" class="align_center"></div></h3>
+          <p class="LR-text" sytle="font-size:5vw;">Cook ingredients with the top rated recipes.</p>
+          <a href="makeit.html" title="Make It" id="makeit" class="centered" sytle="font-size:7vw;">Make It</a>
+        </div>
+        <div class="left-right" id="right">
+          <h3 sytle="font-size:7vw;">Dinner<br><div id="separator-bar" class="align_center"></div></h3>
+          <p class="LR-text" sytle="font-size:5vw;">Dine in at the top rated local restaurants.</p>
+          <a href="buyit.html" title="Buy It" id="buyit" class="centered" sytle="font-size:7vw;">Buy It</a>
+        </div>
+      </div>
+    </main>
 
-  <main>
+    <footer class="page-footer hidden" id="page-footer">
+      <div id="overlay" class="row">
 
-  </main>
+        <!-- about section-->
+        <div class="col s6">
+          <h5 class="white-text">About</h5>
+          <p class="grey-text text-lighten-4">This project was inspired by our love of food. <br>Copyright © 2021</p>
+        </div>
 
-  <script 
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+        <!-- GitHub section -->
+        <div class="col s6 right-align">
+          <h5 class="white-text">GitHub Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/ChengyuD">Cheryth D</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/Omrironen4">Omri Ronen</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/iamalittleforest">Wendy Kobayashi</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous">
-  </script>
-  <script 
-    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" 
-    integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" 
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
     crossorigin="anonymous">
-  </script>
-  
+    </script>
+  <script src="assets/js/home.js"></script>
+  </div>
 </body>
-
 </html>
