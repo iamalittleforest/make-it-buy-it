@@ -20,6 +20,8 @@
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Source+Sans+Pro:wght@600&display=swap">
   <link rel="stylesheet" href="./assets/css/makeit-buyit.css">
   
   <!-- title -->
@@ -30,12 +32,12 @@
 <body>
 
   <!-- header -->
-  <header>
+  <header class="buy-it-header">
 
     <!-- desktop nav -->
-    <nav>
+    <nav class = "buy-it-nav">
       <div class="container nav-wrapper">
-        <span class="brand-logo">Make It / Buy It</span>
+        <span class="brand-logo web-title">Make It / Buy It</span>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="makeit.html">Make It</a></li>
@@ -59,12 +61,15 @@
     <!-- search container -->
     <div class="search-container">
       <div class="container">
-        <div class="row search-padding">
+        <div id="search-padding" class="row search-padding-default">
+          <div class="message text-white">
+              <h3>Don't feel like cooking? Let's go somewhere!</h3>
+          </div>
           <form>
             <div class="search-background">
               <input id="search-input" placeholder="Enter City Name..." required>
-              <button id="search-btn" class="btn btn-color" type="button"><i class="material-icons">search</i></button>
-              <button id="all-favorites-btn" class="btn btn-color" type="button"><i class="material-icons">favorite</i></button>
+              <button id="search-btn" class="btn btn-buy-it" type="button"><i class="material-icons">search</i></button>
+              <button id="all-favorites-btn" class="btn btn-buy-it" type="button"><i class="material-icons">favorite</i></button>
             </div>
           </form>
         </div>
@@ -89,8 +94,8 @@
                   <h6 id="restaurant-rating">Rating</h6>
                 </div>
                 <div class="btn-group">
-                  <button id="link-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">link</i></button>
-                  <button id="favorite-btn" class="btn btn-small btn-color" type="button"><i class=" material-icons">favorite_border</i></button>
+                  <button id="link-btn" class="btn btn-small btn-buy-it" type="button"><i class=" material-icons">link</i></button>
+                  <button id="favorite-btn" class="btn btn-small btn-buy-it" type="button"><i class=" material-icons">favorite_border</i></button>
                 </div>          
                 </div>
             </div>
@@ -113,7 +118,7 @@
   </main>
 
   <!-- footer start -->
-  <footer>
+  <footer class="buy-it-footer">
     <div class="container">
       <div class="row">
 
