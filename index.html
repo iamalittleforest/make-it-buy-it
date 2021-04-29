@@ -24,60 +24,56 @@
 
   <!--webpage name-->
   <div class="cover">
-    <header>
+    <header id="overlay" class="row">
       <nav>
         <div class="container nav-wrapper">
-          <span id="webLogo" class="header-center-item">MAKE IT | BUY IT</span>
+          <h1><span id="webLogoTab" class="header-center-item" sytle="font-size:10vw; cursor:pointer" onclick="openNav()">MAKE IT | BUY IT</span></h1>
+        </div>
+        <div id="nav-footer" class="nav-footer">
+          <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>
+          <a href="#">Make It</a>
+          <a href="#">Buy It</a>
+          <a href="#">Popular Food</a>
+          <a href="#">Blog</a>
+          <a href="#">Login</a>
         </div>
       </nav>
+      
     </header>
 
     <!--Intro post about the website and links to other main pages-->
     <main class="container">
-      <div id="home-content" class="col l12 m12 s12 align_center">
-        <h2 id="intro-title">Cooker or Dinner</h2>
-        <div id="separator-bar" class="align_center"></div>
-        <div id="intro-text" class="wpb-fadeIn">
-          <div>
-            <h5 id="content-text">
-              "MAKE IT|BUY IT has rich resources to help you cooking your own from top rated recipes or finding your local top rated dinning restaurants."
-            </h5>
-          </div>
-        </div>
-
         <!--links to 'make it' and 'buy it' pages-->
-        <div>
-        <a href="makeit.html" title="Make It" id="makeit" class="col s2 knote-button button-normal align-inline">Make It</a>
-        <a href="buyit.html" title="Buy It" id="buyit" class="col s2 knote-button button-normal align-inline">Buy It</a>
+        <div class="left-right" id="left">
+          <h3 sytle="font-size:7vw;">Cooker<br><div id="separator-bar" class="align_center"></div></h3>
+          <p class="LR-text" sytle="font-size:5vw;">Cook ingredients with the top rated recipes.</p>
+          <a href="makeit.html" title="Make It" id="makeit" class="centered" sytle="font-size:7vw;">Make It</a>
+        </div>
+        <div class="left-right" id="right">
+          <h3 sytle="font-size:7vw;">Dinner<br><div id="separator-bar" class="align_center"></div></h3>
+          <p class="LR-text" sytle="font-size:5vw;">Dine in at the top rated local restaurants.</p>
+          <a href="buyit.html" title="Buy It" id="buyit" class="centered" sytle="font-size:7vw;">Buy It</a>
         </div>
       </div>
-
     </main>
 
-    <footer>
-      <div>
-        <div>
+    <footer class="page-footer">
+      <div id="overlay" class="row">
 
-          <!-- about section-->
-          <div class="col s6" id="about">
-            <h5 class="white-text">About</h5>
-            <p class="grey-text text-lighten-4">This project was inspired by our love of food.</p>
-          </div>
-  
-          <!-- GitHub section -->
-          <div class="col s6 right-align" id="links">
-            <h5 class="white-text">GitHub Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="https://github.com/ChengyuD">Cheryth D</a></li>
-              <li><a class="grey-text text-lighten-3" href="https://github.com/Omrironen4">Omri Ronen</a></li>
-              <li><a class="grey-text text-lighten-3" href="https://github.com/iamalittleforest">Wendy Kobayashi</a></li>
-            </ul>
-          </div>
+        <!-- about section-->
+        <div class="col s6">
+          <h5 class="white-text">About</h5>
+          <p class="grey-text text-lighten-4">This project was inspired by our love of food. <br>Copyright © 2021</p>
         </div>
-      </div>
-      <div class="footer-copyright">
-        <div>
-          © 2021 Copyright Text
+
+        <!-- GitHub section -->
+        <div class="col s6 right-align">
+          <h5 class="white-text">GitHub Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/ChengyuD">Cheryth D</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/Omrironen4">Omri Ronen</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/iamalittleforest">Wendy Kobayashi</a></li>
+          </ul>
         </div>
       </div>
     </footer>
@@ -90,6 +86,7 @@
     integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
     crossorigin="anonymous">
     </script>
+  <script src="assets/js/home.js"></script>
   </div>
 </body>
 
