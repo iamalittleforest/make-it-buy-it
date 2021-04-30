@@ -1,5 +1,6 @@
-var allFavoriteInfo = [];
-var idArray = [];
+// define global variables 
+var allFavoriteRecipes = [];
+var allRecipeInfo = [];
 
 // side nav 
 $(document).ready(function(){
@@ -53,7 +54,7 @@ function doSearch(search){
 function renderSearch(data){
   
   $("#ingredients-container").show();
-  $("#favorites-container").hide();
+  $("#favorite-recipes-container").hide();
 
 var allRecipeInfo = data.results;
 console.log(allRecipeInfo);
@@ -101,7 +102,7 @@ for (var i=0; i < allRecipeInfo.length; i++){
   linkBtn.attr("id", "link-btn");
   linkBtn.addClass("btn btn-small btn-make-it left");
   linkBtn.attr("type", "button");
-  linkBtn.html(`<i class=" material-icons">link</i>`);
+  linkBtn.html(`<i class="material-icons">link</i>`);
   
   var link = $("<a>");
   link.attr("href", recipesInfo.sourceUrl);
@@ -133,66 +134,60 @@ function saveFavoriteHandler(event){
   // change favorite icon to signify addition to favorites
   $(this).html(`<i class=" material-icons">favorite</i>`);
 
-  // obtaining the restaurant info from data, to put into favorites button event listener
-  var favoriteImg = $(this).attr("data-image");
-  var favoriteName = $(this).attr("data-name");
+  // obtaining the recipe info from data, to put into favorites button event listener
+  var favoriteRecipeImg = $(this).attr("data-image");
+  var favoriteRecipeName = $(this).attr("data-name");
   var favoriteMissedIng = $(this).attr("data-missed-ing");
-  var favoriteUrl = $(this).attr("data-url");
+  var favoriteRecipeUrl = $(this).attr("data-url");
 
-  // var favoritePrice = $(this).siblings("#restaurant-price").text();
-  // var favoriteRating = $(this).siblings("#restaurant-rating").text();
-  // var favoriteLink = $(this).siblings("#restaurant-link").text();
 
-  var favoriteInfo = {
-    imgUrl: favoriteImg,
-    name: favoriteName,
+  var favoriteRecipeInfo = {
+    imgUrl: favoriteRecipeImg,
+    name: favoriteRecipeName,
     missedIngredients: favoriteMissedIng,
-    url: favoriteUrl,
-    // price: favoritePrice,
-    // rating: favoriteRating,
-    // link: favoriteLink
+    url: favoriteRecipeUrl,
   }
   
   // checks for duplicate entries
-  if(!allFavoriteInfo.includes(favoriteInfo)){
+  if(!allFavoriteRecipes.includes(favoriteRecipeInfo)){
     
     // add favorite to localStorage
-    allFavoriteInfo.push(favoriteInfo);
-    localStorage.setItem("allFavorites", JSON.stringify(allFavoriteInfo));
+    allFavoriteRecipes.push(favoriteRecipeInfo);
+    localStorage.setItem("allFavoriteRecipes", JSON.stringify(allFavoriteRecipes));
   }
   
   // console.log(favoriteInfo);
-  console.log(allFavoriteInfo);
+  console.log(allFavoriteRecipes);
 }
 
 
-$("#all-favorites-btn").on("click", viewFavoritesHandler);
+$("#all-favorite-recipes-btn").on("click", viewFavoritesRecipes);
 
-function viewFavoritesHandler(event){
+function viewFavoritesRecipes(event){
   event.stopPropagation();
 
-  $("#ingredients-container").hide();
-  $("#favorites-container").show();
+  $("#recipes-container").hide();
+  $("#favorite-recipes-container").show();
 
   // get stored favorites from localStorage
-  var savedFavorites = JSON.parse(localStorage.getItem("allFavorites"));
+  var savedFavorites = JSON.parse(localStorage.getItem("allFavoriteRecipes"));
 
   // checks for data in localStorage
   if(savedFavorites !== null){
-    allFavoriteInfo = savedFavorites;
+    allFavoriteRecipes = savedFavorites;
   }else{
-    allFavoriteInfo = [];
+    allFavoriteRecipes = [];
   }
 
   // create cards for each favorite restaurant 
-  for(var i = 0; i < allFavoriteInfo.length; i++){
+  for(var i = 0; i < allFavoriteRecipes.length; i++){
 
-    var favorite = allFavoriteInfo[i];
+    var favorite = allFavoriteRecipes[i];
     
     // create restaurant card
     var cardContainer = $("<div>");
     cardContainer.addClass("col s12 m12 l6");
-    $("#render-favorites").append(cardContainer);
+    $("#render-favorite-recipes").append(cardContainer);
     
     var card = $("<div>");
     card.attr("id", "restaurant-card");
@@ -227,7 +222,7 @@ function viewFavoritesHandler(event){
 
     var linkBtn = $("<button>");
     linkBtn.attr("id", "link-btn");
-    linkBtn.addClass("btn btn-small btn-buy-it left");
+    linkBtn.addClass("btn btn-small btn-make-it left");
     linkBtn.attr("type", "button");
     linkBtn.html(`<i class=" material-icons">link</i>`);
     cardContent.append(linkBtn);
@@ -249,7 +244,7 @@ function searchFormat(){
 // initialize page
 function init(){
   $("#ingredients-container").hide();
-  $("#favorites-container").hide();
+  $("#favorite-recipes-container").hide();
   $("#search-padding").attr("class", "search-padding-default");
 }
 
