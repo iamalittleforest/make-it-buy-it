@@ -59,43 +59,44 @@
     <main>
   
       <!-- search container -->
-      <div class="search-container">
+      <div id="make-it-search" class="search-container">
         <div class="container">
           <div id="search-padding" class="row search-padding-default">
-              <div class="message text-white">
+              <div class="message">
                 <h3>Don't feel like going out? Let's cook something!</h3>
             </div>
             <form>
               <div class="search-background">
-                <input id="search-input" placeholder="Search based on your ingredints! onions,tomatos,..." required>
+                <input id="search-input" placeholder="Enter ingredients! onions,tomatoes,..." required>
                 <button id="search-btn" class="btn btn-make-it" type="button"><i class="material-icons">search</i></button>
-                <button id="all-favorites-btn" class="btn btn-buy-it" type="button"><i class="material-icons">favorite</i></button>
+                <button id="all-favorites-btn" class="btn btn-make-it" type="button"><i class="material-icons">favorite</i></button>
               </div>
             </form>
           </div>
         </div>
       </div>
   
-      <!-- ingredients container  -->
-      <div id="ingredients-container">
+      <!-- recipe container  -->
+      <div id="recipes-container">
         <div class="container">
           <div id="render-search" class="row row-padding">
   
-            
+            <!-- recipe cards  -->
         
           </div>
         </div>
       </div>
-       <!-- favorites container -->
-    <div id="favorites-container">
-      <div class="container">
-        <div id="render-favorites" class="row row-padding">
 
-         
+      <!-- favorites container -->
+      <div id="favorites-container">
+        <div class="container">
+          <div id="render-favorites" class="row row-padding">
 
+            <!-- favorite cards -->
+
+          </div>
         </div>
       </div>
-    </div>
     </main>
   
     <!-- footer start -->
@@ -114,9 +115,9 @@
           <div class="col s6 right-align">
             <h5 class="white-text">GitHub Links</h5>
             <ul>
-              <li><a class="grey-text text-lighten-3" href="https://github.com/ChengyuD">Cheryth D</a></li>
-              <li><a class="grey-text text-lighten-3" href="https://github.com/Omrironen4">Omri Ronen</a></li>
-              <li><a class="grey-text text-lighten-3" href="https://github.com/iamalittleforest">Wendy Kobayashi</a></li>
+              <li><a class="grey-text text-lighten-4" href="https://github.com/ChengyuD">Cheryth D</a></li>
+              <li><a class="grey-text text-lighten-4" href="https://github.com/Omrironen4">Omri Ronen</a></li>
+              <li><a class="grey-text text-lighten-4" href="https://github.com/iamalittleforest">Wendy Kobayashi</a></li>
             </ul>
           </div>
         </div>
@@ -135,7 +136,6 @@
       crossorigin="anonymous">
     </script>
     <script src="./assets/js/makeit.js"></script>
-  
   
 </body>
 
