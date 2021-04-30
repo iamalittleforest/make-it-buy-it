@@ -53,13 +53,13 @@ function doSearch(search){
 // rendering search results
 function renderSearch(data){
   
-  $("#ingredients-container").show();
-  $("#favorite-recipes-container").hide();
+  $("#recipes-container").show();
+  $("#favorite-container").hide();
 
 var allRecipeInfo = data.results;
 console.log(allRecipeInfo);
 
-for (var i=0; i < allRecipeInfo.length; i++){
+for(var i = 0; i < allRecipeInfo.length; i++){
    
   var recipesInfo = allRecipeInfo[i];
 
@@ -140,7 +140,6 @@ function saveFavoriteHandler(event){
   var favoriteMissedIng = $(this).attr("data-missed-ing");
   var favoriteRecipeUrl = $(this).attr("data-url");
 
-
   var favoriteRecipeInfo = {
     imgUrl: favoriteRecipeImg,
     name: favoriteRecipeName,
@@ -161,13 +160,13 @@ function saveFavoriteHandler(event){
 }
 
 
-$("#all-favorite-recipes-btn").on("click", viewFavoritesRecipes);
+$("#all-favorites-btn").on("click", viewFavoritesRecipes);
 
 function viewFavoritesRecipes(event){
   event.stopPropagation();
 
   $("#recipes-container").hide();
-  $("#favorite-recipes-container").show();
+  $("#favorites-container").show();
 
   // get stored favorites from localStorage
   var savedFavorites = JSON.parse(localStorage.getItem("allFavoriteRecipes"));
@@ -187,10 +186,10 @@ function viewFavoritesRecipes(event){
     // create restaurant card
     var cardContainer = $("<div>");
     cardContainer.addClass("col s12 m12 l6");
-    $("#render-favorite-recipes").append(cardContainer);
+    $("#render-favorites").append(cardContainer);
     
     var card = $("<div>");
-    card.attr("id", "restaurant-card");
+    card.attr("id", "recipe-card");
     card.addClass("card horizontal hoverable");
     cardContainer.append(card);
     
@@ -243,8 +242,8 @@ function searchFormat(){
 
 // initialize page
 function init(){
-  $("#ingredients-container").hide();
-  $("#favorite-recipes-container").hide();
+  $("#recipes-container").hide();
+  $("#favorites-container").hide();
   $("#search-padding").attr("class", "search-padding-default");
 }
 
