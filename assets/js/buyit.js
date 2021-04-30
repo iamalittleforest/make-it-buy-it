@@ -2,6 +2,7 @@
 var allFavoriteInfo = [];
 var allRestaurantInfo = [];
 
+// side nav
 $(document).ready(function(){
   $(".sidenav").sidenav();
 });
@@ -9,7 +10,7 @@ $(document).ready(function(){
 init();
 
 // enables use of enter key to submit
-$("form").on('submit', function(e){
+$("form").on("submit", function(e){
   e.preventDefault();
   searchHandler(e);
 })
@@ -83,7 +84,7 @@ function renderSearch(data){
     
     var img = $("<img>");
     img.attr("id", "restaurant-img");
-    img.attr("src", restaurantInfo.image_url)
+    img.attr("src", restaurantInfo.image_url);
     cardImg.append(img);
     
     var cardContent = $("<div>");
@@ -131,8 +132,6 @@ function renderSearch(data){
     favoriteBtn.attr("data-url", restaurantInfo.url);
     cardContent.append(favoriteBtn);
   }
-
-  // make room for results 
   searchFormat();
 }
 
@@ -165,7 +164,7 @@ function saveFavoriteHandler(event){
   // checks for duplicate entries
   if(!allFavoriteInfo.includes(favoriteInfo)){
     
-    // add city to search history and save to localStorage
+    // add favorite restaurant to localStorage
     allFavoriteInfo.push(favoriteInfo);
     localStorage.setItem("allFavorites", JSON.stringify(allFavoriteInfo));
   }
@@ -252,19 +251,11 @@ function viewFavoritesHandler(event){
     link.attr("target", "_blank");
     link.append(linkBtn);
     cardContent.append(link);
-
-    // var favoriteBtn = $("<button>");
-    // favoriteBtn.attr("id", "favorite-btn");
-    // favoriteBtn.addClass("btn btn-small btn-buy-it left");
-    // favoriteBtn.attr("type", "button");
-    // favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
-    // cardContent.append(favoriteBtn);
   }
-
-  // make room for results 
   searchFormat();
 }
 
+// make room for results 
 function searchFormat(){
   $("#search-padding").attr("class", "search-padding-results");
 }

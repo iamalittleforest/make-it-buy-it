@@ -7,12 +7,14 @@ $(document).ready(function(){
   });
 
 init();
-$("form").on('submit', function(e){
-  e.preventDefault()
-  searchHandler(e)
+
+$("form").on("submit", function(e){
+  e.preventDefault();
+  searchRecipe(e);
 })
+
 // on the click of the magnify glass search button, searchRecipe function runs.
-  $("#search-btn").on("click", searchRecipe)
+  $("#search-btn").on("click", searchRecipe);
 
   function searchRecipe(event) {
     //prevents firing of any other functions.
@@ -31,7 +33,7 @@ $("form").on('submit', function(e){
     }
   }
   
-  // this function will initiate the search for recipes 
+// this function will initiate the search for recipes 
 function doSearch(search){
 
   // empty results prior to performing new search
@@ -44,84 +46,78 @@ function doSearch(search){
   }).then(function(data){
     console.log(data);
     renderSearch(data);
-    
   })
 }
 
 // rendering search results
-function renderSearch(data) {
+function renderSearch(data){
   
   $("#ingredients-container").show();
   $("#favorites-container").hide();
 
 var allRecipeInfo = data.results;
-console.log(allRecipeInfo)
+console.log(allRecipeInfo);
 
-// 
-for (var i=0; i < allRecipeInfo.length; i++) {
+for (var i=0; i < allRecipeInfo.length; i++){
    
-var recipesInfo = allRecipeInfo[i]
+  var recipesInfo = allRecipeInfo[i];
 
-// idArray.push(recipeIds);
-// localStorage.setItem("recipeIds", JSON.stringify(idArray));
+  var cardContainer = $("<div>");
+  cardContainer.addClass("col s12 m12 l6");
+  $("#render-search").append(cardContainer)
 
-var cardContainer = $("<div>");
-cardContainer.addClass("col m12 l6");
-$("#render-search").append(cardContainer)
+  var card = $("<div>");
+  card.attr("id", "recipe-card");
+  card.addClass("card horizontal hoverable");
+  cardContainer.append(card);
+  
+  var cardImg = $("<div>");
+  cardImg.attr("id", "image-container");
+  cardImg.addClass("card-image");
+  card.append(cardImg);
 
-var card = $("<div>");
-    card.attr("id", "recipe-card");
-    card.addClass("card horizontal hoverable");
-    cardContainer.append(card);
-    
-    var cardImg = $("<div>");
-    cardImg.attr("id", "image-container");
-    cardImg.addClass("card-image");
-    card.append(cardImg);
+  var jpg = $("<img>");
+  jpg.attr("id", "recipe-img");
+  jpg.attr("src", recipesInfo.image);
+  cardImg.append(jpg);
 
-    var jpg = $("<img>");
-    jpg.attr("id", "recipe-img");
-    jpg.attr("src", `${recipesInfo.image}`)
-    cardImg.append(jpg);
+  var cardContent = $("<div>");
+  cardContent.attr("id", "content-container");
+  cardContent.addClass("card-content");
+  card.append(cardContent);
+  
+  var name = $("<h4>");
+  name.attr("id", "recipe-name");
+  name.addClass("card-title");
+  name.text(recipesInfo.title);
+  cardContent.append(name);
 
-    var cardContent = $("<div>");
-    cardContent.attr("id", "content-container");
-    cardContent.addClass("card-content");
-    card.append(cardContent);
-    
-    var name = $("<div>");
-    name.attr("id", "recipe-name");
-    name.addClass("card-title");
-    name.text(`${recipesInfo.title}`);
-    cardContent.append(name);
+  var missedIngredientCount = $("<h6>");
+  missedIngredientCount.attr("id", "missed-ingredient-count");
+  missedIngredientCount.text(`Missing Ingredients: ${recipesInfo.missedIngredientCount}`);
+  cardContent.append(missedIngredientCount);
 
-    var missedIngredientCount = $("<div>");
-    missedIngredientCount.attr("id", "missed-ingredient-count");
-    missedIngredientCount.text(`Missing Ingredients: ${recipesInfo.missedIngredientCount}`);
-    cardContent.append(missedIngredientCount);
+  var linkBtn = $("<button>");
+  linkBtn.attr("id", "link-btn");
+  linkBtn.addClass("btn btn-small btn-make-it left");
+  linkBtn.attr("type", "button");
+  linkBtn.html(`<i class=" material-icons">link</i>`);
+  
+  var link = $("<a>");
+  link.attr("href", recipesInfo.sourceUrl);
+  link.attr("target", "_blank");
+  link.append(linkBtn);
+  cardContent.append(link);
 
-    var linkBtn = $("<button>");
-    linkBtn.attr("id", "link-btn");
-    linkBtn.addClass("btn btn-small btn-color left");
-    linkBtn.attr("type", "button");
-    linkBtn.html(`<i class=" material-icons">link</i>`);
-    // cardContent.append(linkBtn);
-    
-    var link = $("<a>");
-    link.attr("href", recipesInfo.sourceUrl);
-    link.attr("target", "_blank");
-    link.append(linkBtn);
-    cardContent.append(link);
-
-    var favoriteBtn = $("<button>");
-    favoriteBtn.attr("id", "favorite-btn");
-    favoriteBtn.addClass("btn btn-small btn-color left");
-    favoriteBtn.attr("type", "button");
-    favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
-    favoriteBtn.attr("data-image", recipesInfo.image);
-    cardContent.append(favoriteBtn);
-
+  var favoriteBtn = $("<button>");
+  favoriteBtn.attr("id", "favorite-btn");
+  favoriteBtn.addClass("btn btn-small btn-make-it left");
+  favoriteBtn.attr("type", "button");
+  favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
+  favoriteBtn.attr("data-image", recipesInfo.image);
+  cardContent.append(favoriteBtn);
   }
+  searchFormat();
 }
 
 
@@ -151,7 +147,7 @@ function saveFavoriteHandler(event){
   // checks for duplicate entries
   if(!allFavoriteInfo.includes(favoriteInfo)){
     
-    // add city to search history and save to localStorage
+    // add favorite to localStorage
     allFavoriteInfo.push(favoriteInfo);
     localStorage.setItem("allFavorites", JSON.stringify(allFavoriteInfo));
   }
@@ -227,7 +223,7 @@ function viewFavoritesHandler(event){
 
     var linkBtn = $("<button>");
     linkBtn.attr("id", "link-btn");
-    linkBtn.addClass("btn btn-small btn-color left");
+    linkBtn.addClass("btn btn-small btn-buy-it left");
     linkBtn.attr("type", "button");
     linkBtn.html(`<i class=" material-icons">link</i>`);
     cardContent.append(linkBtn);
@@ -235,20 +231,20 @@ function viewFavoritesHandler(event){
     var link = $("<a>");
     link.attr("href", favorite.link);
     linkBtn.append(link);
-
-    // var favoriteBtn = $("<button>");
-    // favoriteBtn.attr("id", "favorite-btn");
-    // favoriteBtn.addClass("btn btn-small btn-color left");
-    // favoriteBtn.attr("type", "button");
-    // favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
-    // cardContent.append(favoriteBtn);
   }
+  searchFormat();
+}
+
+// make room for results 
+function searchFormat(){
+  $("#search-padding").attr("class", "search-padding-results");
 }
 
 // initialize page
 function init(){
   $("#ingredients-container").hide();
   $("#favorites-container").hide();
+  $("#search-padding").attr("class", "search-padding-default");
 }
 
 
