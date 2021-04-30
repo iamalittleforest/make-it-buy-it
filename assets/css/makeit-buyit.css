@@ -71,6 +71,7 @@ h6 {
 
 .btn-buy-it,
 .btn-make-it {
+  background-color: dimgray;
   font-size: 0.625rem;
   padding: 0 10px;
 }

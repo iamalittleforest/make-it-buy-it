@@ -1,5 +1,5 @@
 // define global variables
-var allFavoriteInfo = [];
+var allFavoriteRestaurants = [];
 var allRestaurantInfo = [];
 
 // side nav
@@ -162,15 +162,15 @@ function saveFavoriteHandler(event){
   }
   
   // checks for duplicate entries
-  if(!allFavoriteInfo.includes(favoriteInfo)){
+  if(!allFavoriteRestaurants.includes(favoriteInfo)){
     
     // add favorite restaurant to localStorage
-    allFavoriteInfo.push(favoriteInfo);
-    localStorage.setItem("allFavorites", JSON.stringify(allFavoriteInfo));
+    allFavoriteRestaurants.push(favoriteInfo);
+    localStorage.setItem("allFavoriteRestaurants", JSON.stringify(allFavoriteRestaurants));
   }
   
   // console.log(favoriteInfo);
-  console.log(allFavoriteInfo);
+  console.log(allFavoriteRestaurants);
 }
 
 
@@ -184,19 +184,19 @@ function viewFavoritesHandler(event){
   $("#favorites-container").show();
 
   // get stored favorites from localStorage
-  var savedFavorites = JSON.parse(localStorage.getItem("allFavorites"));
+  var savedFavorites = JSON.parse(localStorage.getItem("allFavoriteRestaurants"));
 
   // checks for data in localStorage
   if(savedFavorites !== null){
-    allFavoriteInfo = savedFavorites;
+    allFavoriteRestaurants = savedFavorites;
   }else{
-    allFavoriteInfo = [];
+    allFavoriteRestaurants = [];
   }
 
   // create cards for each favorite restaurant 
-  for(var i = 0; i < allFavoriteInfo.length; i++){
+  for(var i = 0; i < allFavoriteRestaurants.length; i++){
 
-    var favorite = allFavoriteInfo[i];
+    var favorite = allFavoriteRestaurants[i];
     
     // create favorite restaurant card
     var cardContainer = $("<div>");
