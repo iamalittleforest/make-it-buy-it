@@ -115,6 +115,9 @@ for (var i=0; i < allRecipeInfo.length; i++){
   favoriteBtn.attr("type", "button");
   favoriteBtn.html(`<i class=" material-icons">favorite_border</i>`);
   favoriteBtn.attr("data-image", recipesInfo.image);
+  favoriteBtn.attr("data-name", recipesInfo.title);
+  favoriteBtn.attr("data-missed-ing", recipesInfo.missedIngredientCount);
+  favoriteBtn.attr("data-url", recipesInfo.sourceUrl);
   cardContent.append(favoriteBtn);
   }
   searchFormat();
@@ -130,8 +133,12 @@ function saveFavoriteHandler(event){
   // change favorite icon to signify addition to favorites
   $(this).html(`<i class=" material-icons">favorite</i>`);
 
+  // obtaining the restaurant info from data, to put into favorites button event listener
   var favoriteImg = $(this).attr("data-image");
-  var favoriteName = $(this).siblings("#recipe-name").text();
+  var favoriteName = $(this).attr("data-name");
+  var favoriteMissedIng = $(this).attr("data-missed-ing");
+  var favoriteUrl = $(this).attr("data-url");
+
   // var favoritePrice = $(this).siblings("#restaurant-price").text();
   // var favoriteRating = $(this).siblings("#restaurant-rating").text();
   // var favoriteLink = $(this).siblings("#restaurant-link").text();
@@ -139,6 +146,8 @@ function saveFavoriteHandler(event){
   var favoriteInfo = {
     imgUrl: favoriteImg,
     name: favoriteName,
+    missedIngredients: favoriteMissedIng,
+    url: favoriteUrl,
     // price: favoritePrice,
     // rating: favoriteRating,
     // link: favoriteLink
@@ -196,7 +205,7 @@ function viewFavoritesHandler(event){
     card.append(cardImg);
 
     var img = $("<img>");
-    img.attr("id", "restaurant-img");
+    img.attr("id", "recipe-img");
     img.attr("src", favorite.imgUrl);
     cardImg.append(img);
 
@@ -206,20 +215,15 @@ function viewFavoritesHandler(event){
     card.append(cardContent);
     
     var name = $("<h4>");
-    name.attr("id", "restaurant-name");
+    name.attr("id", "recipe-name");
     name.addClass("card-title");
     name.text(favorite.name);
     cardContent.append(name);
 
-    var price = $("<h6>");
-    price.attr("id", "restaurant-price");
-    price.text(`Price: ${favorite.price}`);
-    cardContent.append(price);
-    
-    var rating = $("<h6>");
-    rating.attr("id", "restaurant-rating");
-    rating.text(`Rating: ${favorite.rating}`);
-    cardContent.append(rating);
+    var missedIngredientCount = $("<h6>");
+    missedIngredientCount.attr("id", "missed-ingredient-count");
+    missedIngredientCount.text(`Missing Ingredients: ${favorite.missedIngredients}`);
+    cardContent.append(missedIngredientCount);
 
     var linkBtn = $("<button>");
     linkBtn.attr("id", "link-btn");
@@ -229,8 +233,10 @@ function viewFavoritesHandler(event){
     cardContent.append(linkBtn);
     
     var link = $("<a>");
-    link.attr("href", favorite.link);
-    linkBtn.append(link);
+    link.attr("href", favorite.url || "https://spoonacular.com");
+    link.attr("target", "_blank");
+    link.append(linkBtn);
+    cardContent.append(link);
   }
   searchFormat();
 }
