@@ -5,17 +5,17 @@
 }
 
 body {
-    background-color: rgba(93, 113, 133, 0.589);
+    background-color: rgba(30, 42, 112, 0.678);
     background-size: cover;
     height: 100vh;
     width: 100%;
     justify-content: center;
-    display: absolute;
+    display: inline-flex;
 }
 
 body::after {
     content: "";
-    background-image: url("../images/homepage.jpg");
+    background-color: whitesmoke;
     opacity: 0.3;
     top: 0;
     left:0;
@@ -25,19 +25,18 @@ body::after {
     z-index: -1;
 }
 
-header,
-nav {
+header {
     height: 15%;
     min-width: 100vw;
     font-family: 'Fredericka the Great', cursive;
-    background: linear-gradient(to bottom, rgb(150, 98, 30), transparent);
+    background: linear-gradient(to bottom, rgb(43, 46, 73), transparent);
     text-align: center;
     z-index: 3;
 }
 
 #webLogoTab {
-    font-size: 36pt;
-    color:lightgoldenrodyellow;
+    font-size: 1.5rem;
+    color:rgb(212, 212, 175);
     justify-content: center;
 }
 
@@ -51,129 +50,122 @@ header#webLogoTab {
     padding-top: 7%;
 }
 
-.nav-footer {
-    height: 0;
+.container {
+    height: 70%;
     width: 100%;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: linear-gradient(to bottom, rgb(150, 98, 30, 0.7));
-    overflow-x: hidden;
-    transition: 0.5s;
-    text-align: center;
-}
-
-.nav-footer a {
-    padding: 8px 8px 30px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    display: block;
-    transition: 0.3s;
-}
-
-.nav-footer a:hover{
-    color: lightgoldenrodyellow;
-}
-
-.nav-footer .closeBtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 45px;
-    margin-right: 50px;
-    font-weight: bold;
 }
 
 .left-right {
-    height: 85%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
+    height: 50%;
+    position: inline-flex;
+    z-index: 2;
     overflow-x: hidden;
-    padding-top: 20px;
     justify-content: center;
     text-align: center;
 }
 
-#left {
+#left-makeit{
     left: 0;
-    background-color:rgb(238, 165, 123, 0.3);
+    background-image: url("../images/makeit_splash.jpg");
+    opacity: 0.7;
 }
 
-#right {
+#right-buyit{
     right: 0;
-    background-color:rgb(93, 100, 107, 0.3);
+    background-image: url("../images/buyit_splash.jpg");
+    opacity: 0.7;
 }
 
 h3 {
     font-family: 'Cabin Sketch', cursive;
-    font-size: 36pt;
+    font-size: 1.75rem;
     color: lemonchiffon;
-    margin: 175px 5% 0px;
-    padding: 15px 15px;
+    margin: 10% 5% 0px;
+    padding: 0px 15px;
+    z-index: 2;
 }
 
 #separator-bar {
     height: 1px;
     border-top: 2px lemonchiffon solid;
-    margin: 20px 20px;
+    margin: 10px 20px 15px;
 }
 
 .LR-text {
     font-family: 'Cabin Sketch', cursive;
-    font-size: 24pt;
+    font-size: 1.5rem;
     color: lemonchiffon;
     background-color: transparent;
-    margin: 5% 5%;
+    margin: auto 5%;
 }
 
 #makeit,
 #buyit {
     font-family: 'Cabin Sketch', cursive;
-    font-size: 20pt;
+    font-size: 1.5rem;
     color: lemonchiffon;
     border: 2px lemonchiffon solid;
     background-color: transparent;
     padding: 5px 10px;
-    margin: 50px 10%;
+    margin: 10% 10%;
     justify-content: center;
     text-align: center;
 }
 
-.page-footer {
-    height: 16%;
+.home-footer {
+    height: 15%;
     min-width: 100vw;
-    background: linear-gradient(to top, rgb(150, 98, 30), transparent);
+    background: linear-gradient(to top, rgb(43, 46, 73), transparent);
+}
+
+h5 {
+    font-size: 1.1rem;
+}
+
+ul li,
+#footer-p {
+    font-size: 0.75rem;
 }
 
 .row {
     margin-bottom: 0;
 }
 
-.hidden {
-    display: none;
-}
-
-@media screen and (max-height: 450px) {
-    .nav-footer {padding-top: 15px;}
-    .nav-footer a {font-size: 18px}
-}
-
-@media (max-width: 768px) {
-    #left {
-        float: right;
+@media only screen and (min-width: 600px) {
+    #webLogoTab {
+        font-size: 3rem;
+    }
+    h3 {
+        font-size: 2.5rem;
+    }
+    .LR-text {
+        font-size: 2rem;
+    }
+    h5 {
+        font-size: 1.35rem;
+    }
+    ul li {
+        font-size: 0.95rem;
     }
 }
 
-@media (min-width: 769px) {
-    #right {
-        float: right;
+@media only screen and (min-width: 992px) {
+    #webLogoTab {
+        font-size: 3.5rem;
     }
-}
-
-.left-right::after {
-    display: block;
-    clear: both;
-    content: "";
+    h3 {
+        font-size: 3rem;
+        margin: 3% 3% 0px;
+        padding: 0px 15px;
+    }
+    .LR-text {
+        font-size: 2.75rem;
+    }
+    h5 {
+        font-size: 1.55rem;
+    }
+    ul li,
+    #footer-p {
+        font-size: 1.05rem;
+    }
 }
