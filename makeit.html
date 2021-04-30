@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- head -->
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- links -->
   <link 
     rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" 
@@ -15,21 +20,24 @@
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Source+Sans+Pro:wght@600&display=swap">
   <link rel="stylesheet" href="./assets/css/makeit-buyit.css">
+
+<!-- title -->
   <title>Make It</title>
+
 </head>
 
 <body>
 
-  <body>
-
     <!-- header -->
-    <header>
+    <header class="make-it-header">
   
       <!-- desktop nav -->
-      <nav>
+      <nav class="make-it-nav">
         <div class="container nav-wrapper">
-          <span class="brand-logo">Make It / Buy It</span>
+          <span class="brand-logo web-title">Make It / Buy It</span>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="active"><a href="makeit.html">Make It</a></li>
@@ -42,7 +50,7 @@
       <!-- mobile nav -->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="index.html">Home</a></li>
-        <li class="active"><a href="makeit.html">Make It</a></li>
+        <li><a href="makeit.html">Make It</a></li>
         <li><a href="buyit.html">Buy It</a></li>
       </ul>
     </header>
@@ -51,14 +59,17 @@
     <main>
   
       <!-- search container -->
-      <div class="search">
+      <div class="search-container">
         <div class="container">
-          <div class="row search-padding">
+          <div id="search-padding" class="row search-padding-default">
+              <div class="message text-white">
+                <h3>Don't feel like going out? Let's cook something!</h3>
+            </div>
             <form>
               <div class="search-background">
                 <input id="search-input" placeholder="Search based on your ingredints! onions,tomatos,..." required>
-                <button id="search-btn" class="btn btn-color" type="button"><i class="material-icons">search</i></button>
-                <button id="all-favorites-btn" class="btn btn-color" type="button"><i class="material-icons">favorite</i></button>
+                <button id="search-btn" class="btn btn-make-it" type="button"><i class="material-icons">search</i></button>
+                <button id="all-favorites-btn" class="btn btn-buy-it" type="button"><i class="material-icons">favorite</i></button>
               </div>
             </form>
           </div>
@@ -194,7 +205,7 @@
     </main>
   
     <!-- footer start -->
-    <footer>
+    <footer class="make-it-footer">
       <div class="container">
         <div class="row">
   
@@ -202,6 +213,7 @@
           <div class="col s6">
             <h5 class="white-text">About</h5>
             <p class="grey-text text-lighten-4">This project was inspired by our love of food.</p>
+            <p class="grey-text text-lighten-4">Recipe info provided by Spoonacular.</p>
           </div>
   
           <!-- GitHub section -->
