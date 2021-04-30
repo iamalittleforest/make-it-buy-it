@@ -10,7 +10,6 @@ h6 {
 }
 
 .search-container {
-  background-image: url("../images/buyit_splash.jpg");
   background-size: cover;
   background-color: whitesmoke;
 }
@@ -89,17 +88,24 @@ h6 {
   background-color: #01426A;
 }
 
+#make-it-search {
+  background-image: url("../images/makeit_splash.jpg");
+}
+
 .btn-make-it:hover,
 .btn-make-it:active { 
   background-color: #01426A;
 }
-
 
 /* buy-it */
 .buy-it-header,
 .buy-it-nav,
 .buy-it-footer {
   background-color: darkslateblue;
+}
+
+#buy-it-search {
+  background-image: url("../images/buyit_splash.jpg");
 }
 
 .btn-buy-it:hover,
