@@ -1,13 +1,7 @@
-.buy-it-header,
-.buy-it-nav,
-.buy-it-footer {
-  background-color: darkslateblue;
-}
-
-.make-it-header,
-.make-it-nav,
-.make-it-footer {
-  background-color: mediumblue;
+/* shared */
+h4, 
+h6 {
+  margin-top: 0;
 }
 
 .row-padding {
@@ -15,30 +9,10 @@
   margin: 0px;
 }
 
-h3 {
-  font-family: 'PT Sans Narrow', sans-serif;
-  margin: 30px 0;
-  color: white;
-}
-
-h4, 
-h6 {
-  margin-top: 0;
-}
-
-.web-title {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
 .search-container {
   background-image: url("../images/buyit_splash.jpg");
   background-size: cover;
   background-color: whitesmoke;
-}
-
-.search-padding-default {
-  padding: 200px 10vw;
-  margin: 0;
 }
 
 .search-padding-results {
@@ -60,34 +34,10 @@ h6 {
   margin: 0px;
 }
 
-.btn-buy-it,
-.btn-buy-it:visited,
-.btn-make-it,
-.btn-make-it:visited {
-  background-color: dimgray;
-}
-
-.btn-buy-it:hover,
-.btn-buy-it:active { 
-  background-color: darkslateblue;
-}
-
-.btn-make-it:hover,
-.btn-make-it:active { 
-  background-color: mediumblue;
-}
-
 #restaurants-container,
 #recipes-container,
 #favorites-container {
   background-color: whitesmoke;
-}
-
-#restaurant-card,
-#recipe-card {
-  width: 100%;
-  border-radius: 5px;
-  height: 175px;
 }
 
 #image-container {
@@ -120,44 +70,144 @@ h6 {
   margin-top: 5px;
 }
 
+.btn-buy-it,
+.btn-buy-it:visited,
+.btn-make-it,
+.btn-make-it:visited {
+  background-color: dimgray;
+}
+
+
+/* make-it */
+.make-it-header,
+.make-it-nav,
+.make-it-footer {
+  background-color: #01426A;
+}
+
+.btn-make-it:hover,
+.btn-make-it:active { 
+  background-color: #01426A;
+}
+
+
+/* buy-it */
+.buy-it-header,
+.buy-it-nav,
+.buy-it-footer {
+  background-color: darkslateblue;
+}
+
+.btn-buy-it:hover,
+.btn-buy-it:active { 
+  background-color: darkslateblue;
+}
+
+
+/* for small screens */
+nav .brand-logo,
+.web-title {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.50rem;
+}
+
+h3 {
+  color: white;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 1.5rem;
+  margin: 30px 0;
+}
+
+.search-padding-default {
+  padding: 20px 10vw;
+  margin: 0;
+}
+
+#restaurant-card,
+#recipe-card {
+  width: 100%;
+  border-radius: 5px;
+  height: 150px;
+}
+
+.card .card-content .card-title {
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+
 /* for medium screens */
-@media only screen and (max-width: 992px) {
-  .search-padding-default {
-    padding: 100px 10vw;
+@media only screen and (min-width: 600px) {
+  nav .brand-logo,
+  .web-title {
+    font-size: 1.75rem;
   }
 
   h3 {
     font-size: 2rem;
   }
-}
-
-/* for small screens */
-@media only screen and (max-width: 600px) and (min-width: 0px) {
-  .web-title {
-    font-size: 1.25rem;
-  }
 
   .search-padding-default {
-    padding: 20px 10vw;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h6 {
-    font-size: 1rem;
+    padding: 100px 10vw;
+    margin: 0;
   }
 
   #restaurant-card,
   #recipe-card {
-    width: 100%;
-    border-radius: 5px;
-    height: 150px;
+    height: 175px;
   }
 
   .card .card-content .card-title {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  h6 {
+    font-size: 1.25rem;
+  }
+}
+
+/* for large screens */
+@media only screen and (min-width: 992px) {
+  #restaurant-card,
+  #recipe-card {
+    height: 175px;
+  }
+  
+  .card .card-content .card-title {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  nav .brand-logo,
+  .web-title {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 2.25rem;
+  }
+
+  .search-padding-default {
+    padding: 200px 10vw;
+    margin: 0;
+  }
+
+  #restaurant-card,
+  #recipe-card {
+    height: 175px;
+  }
+
+  .card .card-content .card-title {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  h6 {
+    font-size: 1.15rem;
   }
 }
