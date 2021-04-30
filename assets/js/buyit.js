@@ -183,6 +183,9 @@ function viewFavoritesHandler(event){
   $("#restaurants-container").hide();
   $("#favorites-container").show();
 
+  // clear favorites container element
+  $("#render-favorites").empty("");
+
   // get stored favorites from localStorage
   var savedFavorites = JSON.parse(localStorage.getItem("allFavoriteRestaurants"));
 
