@@ -30,7 +30,7 @@ SO THAT I can decide whether I want to make it or buy it
 
 ### Mobile Size:
 
-![image](https://user-images.githubusercontent.com/80147201/116768410-3b2ac700-a9eb-11eb-8e89-328a9e471f1b.png)
+![image](https://user-images.githubusercontent.com/80147201/116771402-e9406c00-a9ff-11eb-8744-b73363d59fd3.png)
 
 ![image](https://user-images.githubusercontent.com/80147201/116768426-4b42a680-a9eb-11eb-97c3-c952c84d96e8.png)
 
