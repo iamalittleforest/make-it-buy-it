@@ -25,6 +25,9 @@ SO THAT I can decide whether I want to make it or buy it
 <img src="assets/images/README-make-it.png" alt="Make It">
 <img src="assets/images/README-buy-it.png" alt="Buy It">
 
+## License
+MIT License
+
 ## Team Members 
 - [Wendy Kobayashi](https://github.com/iamalittleforest)
 - [Cheryth Dai](https://github.com/ChengyuD)
