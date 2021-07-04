@@ -1,78 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- head -->
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
-    integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+
+  <!-- links -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" 
+    integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" 
     crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" 
+    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" 
     crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Fredericka+the+Great&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Source+Sans+Pro:wght@600&display=swap">
   <link rel="stylesheet" href="./assets/css/home.css">
-  <title>Make It or Buy It</title>
+
+<!-- title -->
+  <title>Make It | Buy It</title>
+
 </head>
 
 <body>
 
-  <!--webpage name-->
-  <div class="cover">
-    <header id="overlay" class="row">
-      <div class="container nav-wrapper">
-        <h1><span id="webLogoTab" class="header-center-item">MAKE IT | BUY IT</span></h1>
-      </div>      
-    </header>
-
-    <!--Intro post about the website and links to other main pages-->
-    <main class="container">
-        <!--links to 'make it' and 'buy it' pages-->
-      <div class="left-right row" id="left-makeit">
-        <p class="LR-text">Don't feel like going out? <br>Let's cook something!</p>
-        <a href="makeit.html" title="Make It" id="makeit" class="centered">Make It</a>
-      </div>
-      <div class="left-right row" id="right-buyit">
-        <p class="LR-text">Don't feel like cooking? <br>Let's go somewhere!</p>
-        <a href="buyit.html" title="Buy It" id="buyit" class="centered" sytle="font-size:7vw;">Buy It</a>
-      </div>
-    </main>
-
-    <footer class="home-footer" id="home-footer">
-      <div id="overlay" class="row">
-
-        <!-- about section-->
-        <div class="col s6">
-          <h5 class="white-text">About</h5>
-          <p id="footer-p" class="grey-text text-lighten-4">This project was inspired by our love of food. <br>Resource from Spoonacular & Yelp.</p>
-        </div>
-
-        <!-- GitHub section -->
-        <div class="col s6 right-align">
-          <h5 class="white-text">GitHub Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="https://github.com/ChengyuD">Cheryth D</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://github.com/Omrironen4">Omri Ronen</a></li>
-            <li><a class="grey-text text-lighten-3" href="https://github.com/iamalittleforest">Wendy Kobayashi</a></li>
+    <!-- header -->
+    <header class="main-header">
+  
+      <!-- desktop nav -->
+      <nav class="main-nav">
+        <div class="container nav-wrapper">
+          <span class="brand-logo web-title">Make It / Buy It</span>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="makeit.html">Make It</a></li>
+            <li><a href="buyit.html">Buy It</a></li>
+            <li class="active"><a href="index.html">Home</a></li>
           </ul>
+        </div>
+      </nav>
+      
+      <!-- mobile nav -->
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="makeit.html">Make It</a></li>
+        <li><a href="buyit.html">Buy It</a></li>
+      </ul>
+    </header>
+    
+    <!-- main -->
+    <main>
+  
+      <!-- main container -->
+      <div id="main" class="main-container">
+        <div class="container">
+          <div id="main-padding" class="row main-padding-default">
+              <div>
+                <a class="btn btn-main" href="makeit.html">Let's cook something!</a>
+              </div>  
+                <img id="logo" src="./assets/images/mibi_logo.svg">
+              <div>
+                <a class="btn btn-main" href="buyit.html">Let's go somewhere!</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  
+    <!-- footer start -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="row">
+  
+          <!-- about section-->
+          <div class="col s6">
+            <h6 class="white-text">About</h6>
+            <p class="grey-text text-lighten-4">This project was inspired by our love of food.</p>
+            <p class="grey-text text-lighten-4">Info provided by Spoonacular & Yelp.</p>
+          </div>
+  
+          <!-- GitHub section -->
+          <div class="col s6 right-align">
+            <h6 class="white-text">GitHub Links</h6>
+            <ul>
+              <li><a class="grey-text text-lighten-4" href="https://github.com/ChengyuD">Cheryth Dai</a></li>
+              <li><a class="grey-text text-lighten-4" href="https://github.com/Omrironen4">Omri Ronen</a></li>
+              <li><a class="grey-text text-lighten-4" href="https://github.com/iamalittleforest">Wendy Kobayashi</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous">
+  
+    <!-- scripts -->
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+      crossorigin="anonymous">
     </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
-    integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
-    crossorigin="anonymous">
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" 
+      integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" 
+      crossorigin="anonymous">
     </script>
-  <script src="assets/js/home.js"></script>
-  </div>
+    <script src="./assets/js/home.js"></script>
+  
 </body>
+
 </html>

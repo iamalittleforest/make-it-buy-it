@@ -1,151 +1,114 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+.row-padding {
+  padding: 20px;
+  margin: 0px;
 }
 
-body {
-    background-color: rgba(30, 42, 112, 0.678);
+.main-container {
     background-size: cover;
-    height: 100vh;
-    width: 100%;
-    justify-content: center;
-    display: inline-flex;
-}
-
-body::after {
-    content: "";
     background-color: whitesmoke;
-    opacity: 0.3;
-    top: 0;
-    left:0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-}
-
-header {
-    height: 15%;
-    min-width: 100vw;
-    font-family: 'Fredericka the Great', cursive;
-    background: linear-gradient(to bottom, rgb(43, 46, 73), transparent);
     text-align: center;
-    z-index: 3;
+  }
+  
+.main-header,
+.main-nav,
+.main-footer {
+  background-color: darkolivegreen;
 }
 
-#webLogoTab {
-    font-size: 1.5rem;
-    color:rgb(212, 212, 175);
-    justify-content: center;
+#main {
+  background-image: url("../images/main_splash.jpg");
 }
 
-h1 {
-    margin: 0;
-    padding-top: 3%;
-    padding-bottom: 3%;
+
+/* for small screens */
+nav .brand-logo,
+.web-title {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.50rem;
 }
 
-header#webLogoTab {
-    padding-top: 7%;
+.main-padding-default {
+  padding: 20px 10vw;
+  margin: 0;
 }
 
-.container {
-    height: 70%;
-    width: 100%;
+.btn-main,
+.btn-main:link,
+.btn-main:visited {
+  color: white;
+  background: #696969;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 1.25rem;
 }
 
-.left-right {
-    height: 50%;
-    position: inline-flex;
-    z-index: 2;
-    overflow-x: hidden;
-    justify-content: center;
-    text-align: center;
+.btn-main:hover,
+.btn-main:active {
+  background-color: darkolivegreen;
 }
 
-#left-makeit{
-    left: 0;
-    background-image: url("../images/makeit_splash.jpg");
-    opacity: 0.7;
+h6 {
+  font-size: 1.25rem;
 }
 
-#right-buyit{
-    right: 0;
-    background-image: url("../images/buyit_splash.jpg");
-    opacity: 0.7;
-}
+#logo {
+    display:block;
+    height: 15vh;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 75%;
+  }
 
-.LR-text {
-    font-family: 'Cabin Sketch', cursive;
-    font-size: 1.5rem;
-    color: lemonchiffon;
-    background-color: transparent;
-    margin: 15% 3% 5%;
-}
-
-#makeit,
-#buyit {
-    font-family: 'Cabin Sketch', cursive;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    color: lemonchiffon;
-    border: 2px lemonchiffon solid;
-    background-color: transparent;
-    padding: 5px 10px;
-    margin: 10% 10%;
-    justify-content: center;
-    text-align: center;
-}
-
-.home-footer {
-    height: 15%;
-    min-width: 100vw;
-    background: linear-gradient(to top, rgb(43, 46, 73), transparent);
-}
-
-h5 {
-    font-size: 1.1rem;
-}
-
-ul li,
-#footer-p {
-    font-size: 0.75rem;
-}
-
-.row {
-    margin-bottom: 0;
-}
-
+  
+/* for medium screens */
 @media only screen and (min-width: 600px) {
-    #webLogoTab {
-        font-size: 3rem;
-    }
-    .LR-text {
-        font-size: 2rem;
-        margin: 10% 3%;
-    }
-    h5 {
-        font-size: 1.35rem;
-    }
-    ul li {
-        font-size: 0.95rem;
-    }
+  nav .brand-logo,
+  .web-title {
+    font-size: 1.75rem;
+  }
+
+  .main-padding-default {
+    padding: 35px 10vw;
+    margin: 0;
+  }
+
+  .btn-main {
+    font-size: 2rem;
+  }
+
+  h6 {
+    font-size: 1.25rem;
+  }
+
+  #logo {
+    height: 20vh;
+    padding: 15px;
+  }
 }
 
+
+/* for large screens */
 @media only screen and (min-width: 992px) {
-    #webLogoTab {
-        font-size: 3.5rem;
-    }
-    .LR-text {
-        font-size: 2.75rem;
-        margin: 3% 3%;
-    }
-    h5 {
-        font-size: 1.55rem;
-    }
-    ul li,
-    #footer-p {
-        font-size: 1.05rem;
-    }
+  nav .brand-logo,
+  .web-title {
+    font-size: 2rem;
+  }
+  
+  .main-padding-default {
+    padding: 50px 10vw;
+    margin: 0;
+  }
+  
+  .btn-main {
+    font-size: 2.25rem;
+  }
+
+  h6 {
+    font-size: 1.5rem;
+  }
+
+  #logo {
+    height: 45vh;
+    padding: 20px;
+  }
 }
