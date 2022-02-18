@@ -1,7 +1,7 @@
 # Make It | Buy It
 
 ## Link
-https://iamalittleforest.github.io/project-1-make-it-buy-it/
+https://iamalittleforest.github.io/make-it-buy-it/
 
 ## Languages & Technologies Used
 1. HTML
